@@ -9,13 +9,13 @@ cache_route = os.path.join(to_do_route,"cache.json")
 
 class Mipyme():
     def __init__(self,name=None,date=None,time=None,geoloc=None,
-                 township=None,products_prices=None,exchange_rate=None):
+                 township=None,products_info=[],exchange_rate=None):
         self.name = name 
         self.date = date
         self.time = time
         self.geoloc = geoloc
         self.township = township
-        self.products_prices = products_prices
+        self.products_info = products_info
         self.exchange_rate = exchange_rate
         
     
@@ -26,7 +26,7 @@ class Mipyme():
                 'time':self.time,
                 'geolocation':self.geoloc,
                 'township':self.township,
-                'products_prices':self.products_prices,
+                'products_info':self.products_info,
                 'exchange_rate':self.exchange_rate
             }
         }
@@ -41,4 +41,4 @@ class Mipyme():
         with open(cache_route,'w') as file:
             dicti = self.create_mipyme()
             dictio.update(dicti)
-            file.write(json.dumps(dictio))
+            file.write(json.dumps(dictio,indent=4))
