@@ -1,3 +1,32 @@
 {
-
+    "hola": {
+        "date": "hola",
+        "time": "hola",
+        "geolocation": "hola",
+        "township": "hola",
+        "products_info": {
+            "Products": [
+                "Arroz",
+                "chicharo",
+                "detergente",
+                "aceite",
+                "cigarros"
+            ],
+            "Prices": [
+                "280",
+                "300",
+                "500",
+                "900",
+                "400"
+            ],
+            "Units": [
+                "lb",
+                "lb",
+                "paquete 500g",
+                "L",
+                "caja"
+            ]
+        },
+        "exchange_rate": "480"
+    }
 }
