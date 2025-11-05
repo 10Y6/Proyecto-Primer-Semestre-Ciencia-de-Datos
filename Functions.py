@@ -39,9 +39,7 @@ def get_keys():
 
 def data_to_list():
     #convert data to a list of dictionaries
-    with open(cache_path,'r') as file:
-        data = file.read()
-        data = json.loads(data)
+    data = load_json()
     data_list = []
     for name,values in data.items():
         for key,value in values.items():
