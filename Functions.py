@@ -4,16 +4,6 @@ import json
 file_path = os.path.dirname(os.path.abspath(__file__))
 cache_path = os.path.join(file_path,"data cleaner/cache.json")
 
-aux1 = "date time geolocation township products_info exchange_rate"
-aux2 = "Products Prices Units"
-global_keys = aux1.split(sep=" ")
-
-"""
-products_info
-    Products
-    Prices
-    Units
-"""
 def load_json():
     with open(cache_path,'r') as file:
         data = file.read()
@@ -21,6 +11,7 @@ def load_json():
     return dict(data)
 
 def print_data(mipyme_name:str):
+    #specific data from a mipyme
     data = load_json()[mipyme_name]
     for key, value in data.items():
         if key == "products_info":
@@ -39,13 +30,46 @@ def print_data(mipyme_name:str):
             print(value)
 
 def get_keys():
+    #to get the mypime names
     json = load_json()
     keys = []
     for key in json.keys():
         keys.append(key)
     return keys
-        
-print_data("Bodega El Mambi")
+
+def data_to_list():
+    #convert data to a list of dictionaries
+    with open(cache_path,'r') as file:
+        data = file.read()
+        data = json.loads(data)
+    data_list = []
+    for name,values in data.items():
+        for key,value in values.items():
+            if key == "products_info":
+                for index in range(len(value["Products"])):
+                    dicti = {
+                        "mypime_name":name,
+                        "date":values["date"],
+                        "time":values["time"],
+                        "geolocation":values["geolocation"],
+                        "township":values["township"],
+                        "product":value["Products"][index],
+                        "price":value["Prices"][index],
+                        "units":value["Units"][index],
+                        "exchange_rate":values["exchange_rate"]
+                    }
+                    data_list.append(dicti)
+    return data_list
+
+def print_data_list():
+    #for visualize all data in data list
+    for i in data_to_list():
+        for key,value in i.items():
+            print(key,": ",end="")
+            print(value)
+
+
+
 
 
 
