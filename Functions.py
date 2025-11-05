@@ -46,7 +46,7 @@ def data_to_list():
             if key == "products_info":
                 for index in range(len(value["Products"])):
                     dicti = {
-                        "mypime_name":name,
+                        "mipyme_name":name,
                         "date":values["date"],
                         "time":values["time"],
                         "geolocation":values["geolocation"],
@@ -66,6 +66,23 @@ def print_data_list():
             print(key,": ",end="")
             print(value)
 
+def filter_by(category, value):
+    #to isolate data 
+    #all data of a mipyme
+    #all prices of a product
+    data_list = data_to_list()
+    filtred_list = []
+    if category == "product":
+        for key in data_list:
+            if value.lower() in key["product"].lower():
+                filtred_list.append(key["price"])
+    elif category == "mipyme":
+        for mipymes in data_list:
+            if mipymes["mipyme_name"] == value:
+                product = mipymes["product"]
+                price = mipymes["price"]
+                filtred_list.append((product,price))
+    return filtred_list
 
 
 
