@@ -76,13 +76,15 @@ def filter_by(category, value):
         for key in data_list:
             if value.lower() in key["product"].lower():
                 filtred_list.append(key["price"])
+        return [int(x) for x in filtred_list]
     elif category == "mipyme":
         for mipymes in data_list:
             if mipymes["mipyme_name"] == value:
                 product = mipymes["product"]
                 price = mipymes["price"]
                 filtred_list.append((product,price))
-    return [int(x) for x in filtred_list]
+        return filtred_list
+    
 
 def calculate_statistics(value_list):
     #calculate statitics 
@@ -92,8 +94,7 @@ def calculate_statistics(value_list):
     range_ = abs(min(value_list)-max(value_list))
     variance = sum([(x-mean)**2 for x in value_list])/(len_list-1)
     standard_deviation = variance**(1/2)
-    #mode for fix
-    mode = None
+    #mode for fix, improve in a future
     mode = [value_list.count(x) for x in value_list]
     #mode
     return {
