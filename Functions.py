@@ -1,10 +1,10 @@
 import os 
 import json
 
-file_path = os.path.dirname(os.path.abspath(__file__))
-cache_path = os.path.join(file_path,"data cleaner/cache.json")
-
 def load_json():
+    file_path = os.path.dirname(os.path.abspath(__file__))
+    cache_path = os.path.join(file_path,"data cleaner/cache.json")
+    
     with open(cache_path,'r') as file:
         data = file.read()
         data = json.loads(data)
@@ -82,7 +82,30 @@ def filter_by(category, value):
                 product = mipymes["product"]
                 price = mipymes["price"]
                 filtred_list.append((product,price))
-    return filtred_list
+    return [int(x) for x in filtred_list]
+
+def calculate_statistics(value_list):
+    #calculate statitics 
+    len_list = len(value_list)
+    mean = sum(value_list)/len_list
+    median = sum(sorted(value_list)[len_list//2:len_list//2+1])//2 if len_list % 2 == 0 else sorted(value_list)[len_list//2]
+    range_ = abs(min(value_list)-max(value_list))
+    variance = sum([(x-mean)**2 for x in value_list])/(len_list-1)
+    standard_deviation = variance**(1/2)
+    #mode for fix
+    mode = None
+    mode = [value_list.count(x) for x in value_list]
+    #mode
+    return {
+        "mean":round(mean,2),
+        "median":round(median,2),
+        "range":round(range_,2),
+        "mode":mode,
+        "variance":round(variance,2),
+        "standard_deviation":round(standard_deviation,2),
+        "mode":mode
+    }
+
 
 
 
