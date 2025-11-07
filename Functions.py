@@ -94,7 +94,7 @@ def calculate_statistics(value_list):
     #calculate statitics 
     len_list = len(value_list)
     mean = sum(value_list)/len_list
-    median = sum(sorted(value_list)[len_list//2:len_list//2+1])//2 if len_list % 2 == 0 else sorted(value_list)[len_list//2]
+    median = sum(sorted(value_list)[len_list//2-1:len_list//2])//2 if len_list % 2 == 0 else sorted(value_list)[len_list//2-1]
     range_ = abs(min(value_list)-max(value_list))
     variance = sum([(x-mean)**2 for x in value_list])/(len_list-1)
     standard_deviation = variance**(1/2)
@@ -111,12 +111,16 @@ def calculate_statistics(value_list):
     }
 
 def organize_by(category):
+    #organize data by a categroy
     if category ==  "township":
         pass
     elif category == "product":
         pass
     elif category == "mipyme":
         pass
+    
+def product_vs_exchange(product_list,exchange_list):
+    pass
 
 
 
