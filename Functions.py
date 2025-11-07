@@ -10,7 +10,7 @@ def load_json():
         data = json.loads(data)
     return dict(data)
 
-def print_data(mipyme_name:str):
+def print_data(mipyme_name):
     #specific data from a mipyme
     data = load_json()[mipyme_name]
     for key, value in data.items():
@@ -75,16 +75,20 @@ def filter_by(category, value):
     if category == "product":
         for key in data_list:
             if value.lower() in key["product"].lower():
-                filtred_list.append(key["price"])
-        return [int(x) for x in filtred_list]
+                dicti = {
+                    "price":key["price"],
+                    "exchange_rate":key["exchange_rate"],
+                    "township":key["township"],
+                }
+                filtred_list.append(dicti)
+        return filtred_list
     elif category == "mipyme":
         for mipymes in data_list:
             if mipymes["mipyme_name"] == value:
                 product = mipymes["product"]
                 price = mipymes["price"]
-                filtred_list.append((product,price))
+                filtred_list.append((product,int(price)))
         return filtred_list
-    
 
 def calculate_statistics(value_list):
     #calculate statitics 
@@ -104,11 +108,15 @@ def calculate_statistics(value_list):
         "mode":mode,
         "variance":round(variance,2),
         "standard_deviation":round(standard_deviation,2),
-        "mode":mode
     }
 
-
-
+def organize_by(category):
+    if category ==  "township":
+        pass
+    elif category == "product":
+        pass
+    elif category == "mipyme":
+        pass
 
 
 
