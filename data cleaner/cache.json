@@ -1,1532 +1,398 @@
 {
   "Bodega La Esquina": {
-    "date": "2025-10-28",
+    "date": "2025-10-15",
     "time": "08:30 AM",
     "geolocation": "23.1136,-82.3666",
     "township": "Centro Habana",
     "products_info": {
-      "Products": [
-        "Arroz",
-        "Frijoles Negros",
-        "Aceite",
-        "Azúcar",
-        "Sal",
-        "Café",
-        "Pollo",
-        "Huevos",
-        "Detergente",
-        "Jabón",
-        "Pasta",
-        "Tomate"
-      ],
-      "Prices": [
-        "250",
-        "350",
-        "650",
-        "180",
-        "80",
-        "900",
-        "800",
-        "50",
-        "450",
-        "100",
-        "220",
-        "150"
-      ],
-      "Units": [
-        "lb",
-        "lb",
-        "L",
-        "lb",
-        "lb",
-        "lb",
-        "lb",
-        "unidad",
-        "paquete",
-        "unidad",
-        "paquete",
-        "lb"
-      ]
+      "Products": ["Arroz", "Frijoles Negros", "Aceite", "Azúcar", "Sal", "Café", "Pollo", "Huevos", "Detergente", "Jabón", "Pasta", "Tomate"],
+      "Prices": ["250", "350", "650", "180", "80", "900", "800", "50", "450", "100", "220", "150"],
+      "Units": ["lb", "lb", "L", "lb", "lb", "lb", "lb", "unidad", "paquete", "unidad", "paquete", "lb"]
     },
-    "exchange_rate": "330"
-  },
-  "MiPyME El Trigal": {
-    "date": "2025-10-29",
-    "time": "09:15 AM",
-    "geolocation": "23.1195,-82.3785",
-    "township": "Vedado",
-    "products_info": {
-      "Products": [
-        "Arroz",
-        "Aceite",
-        "Azúcar",
-        "Harina",
-        "Café",
-        "Leche en Polvo",
-        "Mantequilla",
-        "Queso",
-        "Pan",
-        "Galletas",
-        "Chocolate en Polvo",
-        "Sal"
-      ],
-      "Prices": [
-        "260",
-        "670",
-        "190",
-        "280",
-        "920",
-        "1200",
-        "750",
-        "950",
-        "35",
-        "280",
-        "750",
-        "85"
-      ],
-      "Units": [
-        "lb",
-        "L",
-        "lb",
-        "lb",
-        "lb",
-        "kg",
-        "lb",
-        "lb",
-        "unidad",
-        "paquete",
-        "paquete",
-        "lb"
-      ]
-    },
-    "exchange_rate": "332"
+    "exchange_rate": "335"
   },
   "Agromercado Los Pinos": {
-    "date": "2025-10-30",
+    "date": "2025-10-16",
     "time": "07:00 AM",
     "geolocation": "23.1330,-82.3830",
     "township": "Plaza de la Revolución",
     "products_info": {
-      "Products": [
-        "Plátanos",
-        "Yuca",
-        "Boniato",
-        "Malanga",
-        "Tomate",
-        "Cebolla",
-        "Ajo",
-        "Pimiento",
-        "Limón",
-        "Aguacate",
-        "Calabaza",
-        "Pepino"
-      ],
-      "Prices": [
-        "80",
-        "60",
-        "50",
-        "65",
-        "160",
-        "130",
-        "280",
-        "140",
-        "120",
-        "200",
-        "45",
-        "55"
-      ],
-      "Units": [
-        "lb",
-        "lb",
-        "lb",
-        "lb",
-        "lb",
-        "lb",
-        "lb",
-        "lb",
-        "lb",
-        "unidad",
-        "lb",
-        "lb"
-      ]
+      "Products": ["Plátanos", "Yuca", "Boniato", "Malanga", "Tomate", "Cebolla", "Ajo", "Pimiento", "Limón", "Aguacate", "Calabaza", "Pepino"],
+      "Prices": ["80", "60", "50", "65", "160", "130", "280", "140", "120", "200", "45", "55"],
+      "Units": ["lb", "lb", "lb", "lb", "lb", "lb", "lb", "lb", "lb", "unidad", "lb", "lb"]
     },
-    "exchange_rate": "335"
+    "exchange_rate": "336"
   },
   "Carnicería El Criollo": {
-    "date": "2025-10-31",
+    "date": "2025-10-17",
     "time": "06:45 AM",
     "geolocation": "23.1050,-82.3900",
     "township": "Habana Vieja",
     "products_info": {
-      "Products": [
-        "Pollo",
-        "Carne de Cerdo",
-        "Carne de Res",
-        "Chorizo",
-        "Jamón",
-        "Mortadela",
-        "Hígado",
-        "Costillas",
-        "Aceite",
-        "Limón",
-        "Ajo",
-        "Sal"
-      ],
-      "Prices": [
-        "820",
-        "1050",
-        "1300",
-        "900",
-        "1000",
-        "520",
-        "650",
-        "1200",
-        "680",
-        "125",
-        "290",
-        "90"
-      ],
-      "Units": [
-        "lb",
-        "lb",
-        "lb",
-        "lb",
-        "lb",
-        "lb",
-        "lb",
-        "lb",
-        "L",
-        "lb",
-        "lb",
-        "lb"
-      ]
+      "Products": ["Pollo", "Carne de Cerdo", "Carne de Res", "Chorizo", "Jamón", "Mortadela", "Hígado", "Costillas", "Aceite", "Limón", "Ajo", "Sal"],
+      "Prices": ["820", "1050", "1300", "900", "1000", "520", "650", "1200", "660", "125", "290", "90"],
+      "Units": ["lb", "lb", "lb", "lb", "lb", "lb", "lb", "lb", "L", "lb", "lb", "lb"]
     },
     "exchange_rate": "338"
   },
   "Tienda La Época": {
-    "date": "2025-11-01",
+    "date": "2025-10-18",
     "time": "10:00 AM",
-    "geolocation": "23.1400,-82.3700",
+    "geolocation": "23.1400,-82.4500",
     "township": "Playa",
     "products_info": {
-      "Products": [
-        "Detergente",
-        "Suavizante",
-        "Cloro",
-        "Jabón de Baño",
-        "Champú",
-        "Pasta Dental",
-        "Papel Higiénico",
-        "Toallas Sanitarias",
-        "Desodorante",
-        "Crema Dental",
-        "Jabón de Lavar",
-        "Esponja"
-      ],
-      "Prices": [
-        "480",
-        "400",
-        "250",
-        "110",
-        "480",
-        "320",
-        "200",
-        "420",
-        "360",
-        "340",
-        "220",
-        "90"
-      ],
-      "Units": [
-        "paquete",
-        "pomo",
-        "pomo",
-        "unidad",
-        "pomo",
-        "tubo",
-        "paquete",
-        "paquete",
-        "barra",
-        "tubo",
-        "barra",
-        "unidad"
-      ]
+      "Products": ["Detergente", "Suavizante", "Cloro", "Jabón de Baño", "Champú", "Pasta Dental", "Papel Higiénico", "Toallas Sanitarias", "Desodorante", "Crema Dental", "Jabón de Lavar", "Esponja"],
+      "Prices": ["480", "400", "250", "110", "480", "320", "200", "420", "360", "340", "220", "90"],
+      "Units": ["paquete", "pomo", "pomo", "unidad", "pomo", "tubo", "paquete", "paquete", "barra", "tubo", "barra", "unidad"]
     },
     "exchange_rate": "340"
   },
   "Bodega San José": {
-    "date": "2025-11-03",
+    "date": "2025-10-20",
     "time": "08:00 AM",
     "geolocation": "23.0900,-82.3500",
     "township": "Cerro",
     "products_info": {
-      "Products": [
-        "Arroz",
-        "Frijoles Colorados",
-        "Chicharos",
-        "Lentejas",
-        "Aceite",
-        "Azúcar",
-        "Sal",
-        "Vinagre",
-        "Pasta",
-        "Atún",
-        "Sardinas",
-        "Salsa de Tomate"
-      ],
-      "Prices": [
-        "265",
-        "370",
-        "380",
-        "420",
-        "690",
-        "195",
-        "92",
-        "180",
-        "240",
-        "410",
-        "320",
-        "210"
-      ],
-      "Units": [
-        "lb",
-        "lb",
-        "lb",
-        "lb",
-        "L",
-        "lb",
-        "lb",
-        "botella",
-        "paquete",
-        "lata",
-        "lata",
-        "pomo"
-      ]
+      "Products": ["Arroz", "Frijoles Colorados", "Chicharos", "Lentejas", "Aceite", "Azúcar", "Sal", "Vinagre", "Pasta", "Atún", "Sardinas", "Salsa de Tomate"],
+      "Prices": ["265", "370", "380", "420", "690", "195", "92", "180", "240", "410", "320", "210"],
+      "Units": ["lb", "lb", "lb", "lb", "L", "lb", "lb", "botella", "paquete", "lata", "lata", "pomo"]
     },
     "exchange_rate": "342"
   },
   "MiPyME Villa Clara": {
-    "date": "2025-11-05",
+    "date": "2025-10-21",
     "time": "09:30 AM",
     "geolocation": "23.0600,-82.4200",
     "township": "Boyeros",
     "products_info": {
-      "Products": [
-        "Leche en Polvo",
-        "Leche Evaporada",
-        "Queso",
-        "Yogurt",
-        "Mantequilla",
-        "Huevos",
-        "Pan de Molde",
-        "Mayonesa",
-        "Mostaza",
-        "Ketchup",
-        "Aceite",
-        "Café"
-      ],
-      "Prices": [
-        "1250",
-        "290",
-        "980",
-        "240",
-        "780",
-        "52",
-        "190",
-        "390",
-        "240",
-        "310",
-        "700",
-        "950"
-      ],
-      "Units": [
-        "kg",
-        "lata",
-        "lb",
-        "pomo",
-        "lb",
-        "unidad",
-        "paquete",
-        "pomo",
-        "pomo",
-        "pomo",
-        "L",
-        "lb"
-      ]
+      "Products": ["Leche en Polvo", "Leche Evaporada", "Queso", "Yogurt", "Mantequilla", "Huevos", "Pan de Molde", "Mayonesa", "Mostaza", "Ketchup", "Aceite", "Café"],
+      "Prices": ["1250", "290", "980", "240", "780", "52", "190", "390", "240", "310", "700", "950"],
+      "Units": ["kg", "lata", "lb", "pomo", "lb", "unidad", "paquete", "pomo", "pomo", "pomo", "L", "lb"]
     },
     "exchange_rate": "345"
   },
   "Mercado El Progreso": {
-    "date": "2025-11-07",
+    "date": "2025-10-22",
     "time": "07:30 AM",
-    "geolocation": "23.1500,-82.3600",
+    "geolocation": "23.1000,-82.4300",
     "township": "Marianao",
     "products_info": {
-      "Products": [
-        "Arroz",
-        "Pollo",
-        "Aceite",
-        "Frijoles Negros",
-        "Azúcar",
-        "Café",
-        "Sal",
-        "Detergente",
-        "Papel Higiénico",
-        "Jabón",
-        "Pasta",
-        "Tomate"
-      ],
-      "Prices": [
-        "270",
-        "840",
-        "710",
-        "360",
-        "200",
-        "970",
-        "95",
-        "490",
-        "210",
-        "115",
-        "250",
-        "165"
-      ],
-      "Units": [
-        "lb",
-        "lb",
-        "L",
-        "lb",
-        "lb",
-        "lb",
-        "lb",
-        "paquete",
-        "paquete",
-        "unidad",
-        "paquete",
-        "lb"
-      ]
+      "Products": ["Arroz", "Pollo", "Aceite", "Frijoles Negros", "Azúcar", "Café", "Sal", "Detergente", "Papel Higiénico", "Jabón", "Pasta", "Tomate"],
+      "Prices": ["270", "840", "710", "360", "200", "970", "95", "490", "210", "115", "250", "165"],
+      "Units": ["lb", "lb", "L", "lb", "lb", "lb", "lb", "paquete", "paquete", "unidad", "paquete", "lb"]
     },
     "exchange_rate": "348"
   },
   "Tienda Santa Rita": {
-    "date": "2025-11-09",
+    "date": "2025-10-24",
     "time": "08:45 AM",
-    "geolocation": "23.1100,-82.3500",
+    "geolocation": "23.0850,-82.3750",
     "township": "Diez de Octubre",
     "products_info": {
-      "Products": [
-        "Arroz",
-        "Aceite",
-        "Azúcar",
-        "Harina de Maíz",
-        "Café",
-        "Pasta",
-        "Sal",
-        "Vinagre",
-        "Aceitunas",
-        "Puré de Tomate",
-        "Condimentos",
-        "Caldo en Cubitos"
-      ],
-      "Prices": [
-        "275",
-        "720",
-        "205",
-        "210",
-        "1000",
-        "260",
-        "98",
-        "190",
-        "670",
-        "230",
-        "180",
-        "130"
-      ],
-      "Units": [
-        "lb",
-        "L",
-        "lb",
-        "paquete",
-        "lb",
-        "paquete",
-        "lb",
-        "botella",
-        "pomo",
-        "pomo",
-        "sobre",
-        "cubito"
-      ]
+      "Products": ["Arroz", "Aceite", "Azúcar", "Harina de Maíz", "Café", "Pasta", "Sal", "Vinagre", "Aceitunas", "Puré de Tomate", "Condimentos", "Caldo en Cubitos"],
+      "Prices": ["275", "720", "205", "210", "1000", "260", "98", "190", "670", "230", "180", "130"],
+      "Units": ["lb", "L", "lb", "paquete", "lb", "paquete", "lb", "botella", "pomo", "pomo", "sobre", "cubito"]
     },
     "exchange_rate": "350"
   },
   "Bodega La Caridad": {
-    "date": "2025-11-11",
+    "date": "2025-10-25",
     "time": "09:00 AM",
-    "geolocation": "23.0800,-82.3800",
+    "geolocation": "23.0800,-82.3200",
     "township": "San Miguel del Padrón",
     "products_info": {
-      "Products": [
-        "Arroz",
-        "Aceite",
-        "Azúcar",
-        "Café",
-        "Leche",
-        "Jugo",
-        "Galletas",
-        "Pasta",
-        "Sal",
-        "Pimienta",
-        "Salsa",
-        "Mayonesa"
-      ],
-      "Prices": [
-        "280",
-        "730",
-        "210",
-        "1020",
-        "210",
-        "240",
-        "290",
-        "270",
-        "100",
-        "600",
-        "520",
-        "400"
-      ],
-      "Units": [
-        "lb",
-        "L",
-        "lb",
-        "lb",
-        "L",
-        "botella",
-        "paquete",
-        "paquete",
-        "lb",
-        "pomo",
-        "pomo",
-        "pomo"
-      ]
+      "Products": ["Arroz", "Aceite", "Azúcar", "Café", "Leche", "Jugo", "Galletas", "Pasta", "Sal", "Pimienta", "Salsa", "Mayonesa"],
+      "Prices": ["280", "730", "210", "1020", "210", "240", "290", "270", "100", "600", "520", "400"],
+      "Units": ["lb", "L", "lb", "lb", "L", "botella", "paquete", "paquete", "lb", "pomo", "pomo", "pomo"]
     },
     "exchange_rate": "353"
   },
   "Agromercado Central": {
-    "date": "2025-11-13",
+    "date": "2025-10-27",
     "time": "07:15 AM",
-    "geolocation": "23.1200,-82.4000",
+    "geolocation": "23.0800,-82.4500",
     "township": "La Lisa",
     "products_info": {
-      "Products": [
-        "Tomate",
-        "Cebolla",
-        "Ajo",
-        "Pimiento",
-        "Zanahoria",
-        "Pepino",
-        "Lechuga",
-        "Repollo",
-        "Calabaza",
-        "Berenjena",
-        "Rábano",
-        "Perejil"
-      ],
-      "Prices": [
-        "170",
-        "140",
-        "300",
-        "150",
-        "90",
-        "60",
-        "75",
-        "65",
-        "55",
-        "100",
-        "80",
-        "50"
-      ],
-      "Units": [
-        "lb",
-        "lb",
-        "lb",
-        "lb",
-        "lb",
-        "lb",
-        "lb",
-        "lb",
-        "lb",
-        "lb",
-        "lb",
-        "atado"
-      ]
+      "Products": ["Tomate", "Cebolla", "Ajo", "Pimiento", "Zanahoria", "Pepino", "Lechuga", "Repollo", "Calabaza", "Berenjena", "Rábano", "Perejil"],
+      "Prices": ["170", "140", "300", "150", "90", "60", "75", "65", "55", "100", "80", "50"],
+      "Units": ["lb", "lb", "lb", "lb", "lb", "lb", "lb", "lb", "lb", "lb", "lb", "atado"]
     },
     "exchange_rate": "355"
   },
   "Pescadería Mar Azul": {
-    "date": "2025-11-15",
+    "date": "2025-10-28",
     "time": "06:30 AM",
     "geolocation": "23.1350,-82.3450",
     "township": "Regla",
     "products_info": {
-      "Products": [
-        "Pescado",
-        "Camarones",
-        "Langostinos",
-        "Pulpo",
-        "Calamar",
-        "Aceite",
-        "Limón",
-        "Ajo",
-        "Perejil",
-        "Cilantro",
-        "Sal",
-        "Cebolla"
-      ],
-      "Prices": [
-        "900",
-        "1750",
-        "2100",
-        "1400",
-        "1050",
-        "740",
-        "130",
-        "310",
-        "55",
-        "55",
-        "105",
-        "145"
-      ],
-      "Units": [
-        "lb",
-        "lb",
-        "lb",
-        "lb",
-        "lb",
-        "L",
-        "lb",
-        "lb",
-        "atado",
-        "atado",
-        "lb",
-        "lb"
-      ]
+      "Products": ["Pescado", "Camarones", "Langostinos", "Pulpo", "Calamar", "Aceite", "Limón", "Ajo", "Perejil", "Cilantro", "Sal", "Cebolla"],
+      "Prices": ["900", "1750", "2100", "1400", "1050", "740", "130", "310", "55", "55", "105", "145"],
+      "Units": ["lb", "lb", "lb", "lb", "lb", "L", "lb", "lb", "atado", "atado", "lb", "lb"]
     },
     "exchange_rate": "358"
   },
   "Bodega Los Hermanos": {
-    "date": "2025-11-17",
+    "date": "2025-10-30",
     "time": "08:30 AM",
-    "geolocation": "23.0950,-82.3650",
+    "geolocation": "23.0500,-82.3800",
     "township": "Arroyo Naranjo",
     "products_info": {
-      "Products": [
-        "Arroz",
-        "Frijoles Negros",
-        "Aceite",
-        "Azúcar",
-        "Café",
-        "Sal",
-        "Pasta",
-        "Harina de Maíz",
-        "Puré de Tomate",
-        "Condimentos",
-        "Caldo",
-        "Vinagre"
-      ],
-      "Prices": [
-        "285",
-        "375",
-        "750",
-        "215",
-        "1040",
-        "102",
-        "275",
-        "220",
-        "240",
-        "190",
-        "135",
-        "200"
-      ],
-      "Units": [
-        "lb",
-        "lb",
-        "L",
-        "lb",
-        "lb",
-        "lb",
-        "paquete",
-        "paquete",
-        "pomo",
-        "sobre",
-        "cubito",
-        "botella"
-      ]
+      "Products": ["Arroz", "Frijoles Negros", "Aceite", "Azúcar", "Café", "Sal", "Pasta", "Harina de Maíz", "Puré de Tomate", "Condimentos", "Caldo", "Vinagre"],
+      "Prices": ["285", "375", "750", "215", "1040", "102", "275", "220", "240", "190", "135", "200"],
+      "Units": ["lb", "lb", "L", "lb", "lb", "lb", "paquete", "paquete", "pomo", "sobre", "cubito", "botella"]
     },
     "exchange_rate": "360"
   },
   "MiPyME El Campo": {
-    "date": "2025-11-19",
+    "date": "2025-11-01",
     "time": "09:15 AM",
-    "geolocation": "23.1450,-82.3550",
+    "geolocation": "23.0400,-82.2900",
     "township": "Cotorro",
     "products_info": {
-      "Products": [
-        "Yuca",
-        "Malanga",
-        "Boniato",
-        "Plátano Macho",
-        "Plátano Burro",
-        "Calabaza",
-        "Maíz",
-        "Frijoles",
-        "Chicharos",
-        "Habichuelas",
-        "Guandú",
-        "Arroz"
-      ],
-      "Prices": [
-        "70",
-        "75",
-        "60",
-        "85",
-        "95",
-        "55",
-        "75",
-        "340",
-        "380",
-        "350",
-        "360",
-        "290"
-      ],
-      "Units": [
-        "lb",
-        "lb",
-        "lb",
-        "lb",
-        "lb",
-        "lb",
-        "lb",
-        "lb",
-        "lb",
-        "lb",
-        "lb",
-        "lb"
-      ]
+      "Products": ["Yuca", "Malanga", "Boniato", "Plátano Macho", "Plátano Burro", "Calabaza", "Maíz", "Frijoles", "Chicharos", "Habichuelas", "Guandú", "Arroz"],
+      "Prices": ["70", "75", "60", "85", "95", "55", "75", "340", "380", "350", "360", "290"],
+      "Units": ["lb", "lb", "lb", "lb", "lb", "lb", "lb", "lb", "lb", "lb", "lb", "lb"]
     },
     "exchange_rate": "363"
   },
   "Carnicería Los Amigos": {
-    "date": "2025-11-21",
+    "date": "2025-11-03",
     "time": "07:00 AM",
-    "geolocation": "23.1000,-82.3900",
+    "geolocation": "23.1100,-82.2900",
     "township": "Guanabacoa",
     "products_info": {
-      "Products": [
-        "Pollo",
-        "Muslos de Pollo",
-        "Pechuga",
-        "Carne de Cerdo",
-        "Costillas",
-        "Chorizo",
-        "Morcilla",
-        "Aceite",
-        "Limón",
-        "Ajo",
-        "Comino",
-        "Sal"
-      ],
-      "Prices": [
-        "860",
-        "900",
-        "990",
-        "1100",
-        "1250",
-        "950",
-        "800",
-        "760",
-        "135",
-        "320",
-        "240",
-        "108"
-      ],
-      "Units": [
-        "lb",
-        "lb",
-        "lb",
-        "lb",
-        "lb",
-        "lb",
-        "lb",
-        "L",
-        "lb",
-        "lb",
-        "pomo",
-        "lb"
-      ]
+      "Products": ["Pollo", "Muslos de Pollo", "Pechuga", "Carne de Cerdo", "Costillas", "Chorizo", "Morcilla", "Aceite", "Limón", "Ajo", "Comino", "Sal"],
+      "Prices": ["860", "900", "990", "1100", "1250", "950", "800", "760", "135", "320", "240", "108"],
+      "Units": ["lb", "lb", "lb", "lb", "lb", "lb", "lb", "L", "lb", "lb", "pomo", "lb"]
     },
     "exchange_rate": "365"
   },
-  "Tienda Mi Bodega": {
-    "date": "2025-11-23",
+  "Mercado Alamar": {
+    "date": "2025-11-05",
     "time": "10:00 AM",
-    "geolocation": "23.1250,-82.3750",
-    "township": "San José de las Lajas",
+    "geolocation": "23.1500,-82.2800",
+    "township": "Habana del Este",
     "products_info": {
-      "Products": [
-        "Arroz",
-        "Aceite",
-        "Azúcar",
-        "Leche en Polvo",
-        "Café",
-        "Chocolate",
-        "Galletas",
-        "Pan",
-        "Mermelada",
-        "Mantequilla",
-        "Huevos",
-        "Queso"
-      ],
-      "Prices": [
-        "295",
-        "770",
-        "220",
-        "1350",
-        "1070",
-        "800",
-        "300",
-        "210",
-        "520",
-        "820",
-        "54",
-        "1020"
-      ],
-      "Units": [
-        "lb",
-        "L",
-        "lb",
-        "kg",
-        "lb",
-        "tableta",
-        "paquete",
-        "unidad",
-        "pomo",
-        "lb",
-        "unidad",
-        "lb"
-      ]
+      "Products": ["Arroz", "Aceite", "Azúcar", "Leche en Polvo", "Café", "Chocolate", "Galletas", "Pan", "Mermelada", "Mantequilla", "Huevos", "Queso"],
+      "Prices": ["295", "770", "220", "1350", "1070", "800", "300", "210", "520", "820", "54", "1020"],
+      "Units": ["lb", "L", "lb", "kg", "lb", "tableta", "paquete", "unidad", "pomo", "lb", "unidad", "lb"]
     },
     "exchange_rate": "368"
   },
-  "Bodega El Trigal": {
-    "date": "2025-11-25",
+  "Bodega El Sol": {
+    "date": "2025-11-07",
     "time": "08:00 AM",
-    "geolocation": "23.0850,-82.3550",
-    "township": "Bejucal",
+    "geolocation": "23.1136,-82.3666",
+    "township": "Centro Habana",
     "products_info": {
-      "Products": [
-        "Frijoles Negros",
-        "Chicharos",
-        "Maíz",
-        "Arroz",
-        "Aceite",
-        "Manteca",
-        "Sal",
-        "Azúcar",
-        "Café",
-        "Chocolate Líquido",
-        "Casabe",
-        "Harina"
-      ],
-      "Prices": [
-        "390",
-        "400",
-        "140",
-        "300",
-        "780",
-        "570",
-        "110",
-        "225",
-        "1090",
-        "750",
-        "180",
-        "290"
-      ],
-      "Units": [
-        "lb",
-        "lb",
-        "lb",
-        "lb",
-        "L",
-        "lb",
-        "lb",
-        "lb",
-        "lb",
-        "botella",
-        "unidad",
-        "lb"
-      ]
+      "Products": ["Frijoles Negros", "Chicharos", "Maíz", "Arroz", "Aceite", "Manteca", "Sal", "Azúcar", "Café", "Chocolate Líquido", "Casabe", "Harina"],
+      "Prices": ["390", "400", "140", "300", "780", "570", "110", "225", "1090", "750", "180", "290"],
+      "Units": ["lb", "lb", "lb", "lb", "L", "lb", "lb", "lb", "lb", "botella", "unidad", "lb"]
     },
     "exchange_rate": "370"
   },
   "Frutería La Palma": {
-    "date": "2025-11-27",
+    "date": "2025-11-10",
     "time": "06:45 AM",
-    "geolocation": "23.1550,-82.3850",
-    "township": "Bauta",
+    "geolocation": "23.1330,-82.3830",
+    "township": "Plaza de la Revolución",
     "products_info": {
-      "Products": [
-        "Aguacate",
-        "Mango",
-        "Papaya",
-        "Piña",
-        "Guayaba",
-        "Mamey",
-        "Chirimoya",
-        "Coco",
-        "Plátano Fruta",
-        "Naranja",
-        "Toronja",
-        "Limón"
-      ],
-      "Prices": [
-        "240",
-        "125",
-        "80",
-        "160",
-        "120",
-        "190",
-        "225",
-        "100",
-        "100",
-        "130",
-        "120",
-        "140"
-      ],
-      "Units": [
-        "unidad",
-        "lb",
-        "lb",
-        "unidad",
-        "lb",
-        "lb",
-        "lb",
-        "unidad",
-        "lb",
-        "lb",
-        "lb",
-        "lb"
-      ]
+      "Products": ["Aguacate", "Mango", "Papaya", "Piña", "Guayaba", "Mamey", "Chirimoya", "Coco", "Plátano Fruta", "Naranja", "Toronja", "Limón"],
+      "Prices": ["240", "125", "80", "160", "120", "190", "225", "100", "100", "130", "120", "140"],
+      "Units": ["unidad", "lb", "lb", "unidad", "lb", "lb", "lb", "unidad", "lb", "lb", "lb", "lb"]
     },
     "exchange_rate": "373"
   },
   "Dulcería El Manisero": {
-    "date": "2025-11-29",
+    "date": "2025-11-12",
     "time": "10:30 AM",
-    "geolocation": "23.1300,-82.3600",
-    "township": "San Antonio de los Baños",
+    "geolocation": "23.1050,-82.3900",
+    "township": "Habana Vieja",
     "products_info": {
-      "Products": [
-        "Maní Tostado",
-        "Maní Natural",
-        "Turrones",
-        "Panetela",
-        "Rositas de Maíz",
-        "Boniatillo",
-        "Coquitos",
-        "Dulce de Leche",
-        "Pasta de Guayaba",
-        "Mermelada",
-        "Miel",
-        "Chocolate"
-      ],
-      "Prices": [
-        "460",
-        "360",
-        "300",
-        "240",
-        "210",
-        "360",
-        "410",
-        "520",
-        "470",
-        "570",
-        "700",
-        "850"
-      ],
-      "Units": [
-        "lb",
-        "lb",
-        "unidad",
-        "unidad",
-        "bolsa",
-        "unidad",
-        "paquete",
-        "pomo",
-        "barra",
-        "pomo",
-        "botella",
-        "tableta"
-      ]
+      "Products": ["Maní Tostado", "Maní Natural", "Turrones", "Panetela", "Rositas de Maíz", "Boniatillo", "Coquitos", "Dulce de Leche", "Pasta de Guayaba", "Mermelada", "Miel", "Chocolate"],
+      "Prices": ["460", "360", "300", "240", "210", "360", "410", "520", "470", "570", "700", "850"],
+      "Units": ["lb", "lb", "unidad", "unidad", "bolsa", "unidad", "paquete", "pomo", "barra", "pomo", "botella", "tableta"]
     },
     "exchange_rate": "375"
   },
   "Bodega Los Pinos": {
-    "date": "2025-12-01",
+    "date": "2025-11-14",
     "time": "09:00 AM",
-    "geolocation": "23.1150,-82.3450",
-    "township": "Güines",
+    "geolocation": "23.1400,-82.4500",
+    "township": "Playa",
     "products_info": {
-      "Products": [
-        "Arroz",
-        "Frijoles Colorados",
-        "Aceite",
-        "Azúcar",
-        "Café",
-        "Sal",
-        "Ajo en Polvo",
-        "Cebolla en Polvo",
-        "Comino",
-        "Orégano",
-        "Laurel",
-        "Pasta"
-      ],
-      "Prices": [
-        "305",
-        "410",
-        "790",
-        "230",
-        "1110",
-        "112",
-        "360",
-        "310",
-        "270",
-        "220",
-        "190",
-        "285"
-      ],
-      "Units": [
-        "lb",
-        "lb",
-        "L",
-        "lb",
-        "lb",
-        "lb",
-        "pomo",
-        "pomo",
-        "pomo",
-        "pomo",
-        "pomo",
-        "paquete"
-      ]
+      "Products": ["Arroz", "Frijoles Colorados", "Aceite", "Azúcar", "Café", "Sal", "Ajo en Polvo", "Cebolla en Polvo", "Comino", "Orégano", "Laurel", "Pasta"],
+      "Prices": ["305", "410", "790", "230", "1110", "112", "360", "310", "270", "220", "190", "285"],
+      "Units": ["lb", "lb", "L", "lb", "lb", "lb", "pomo", "pomo", "pomo", "pomo", "pomo", "paquete"]
     },
     "exchange_rate": "378"
   },
   "Carnicería La Carne": {
-    "date": "2025-12-03",
+    "date": "2025-11-16",
     "time": "07:00 AM",
-    "geolocation": "23.0900,-82.3700",
-    "township": "Melena del Sur",
+    "geolocation": "23.0900,-82.3500",
+    "township": "Cerro",
     "products_info": {
-      "Products": [
-        "Carne Molida",
-        "Bistec",
-        "Chuletas",
-        "Hígado",
-        "Riñones",
-        "Aceite",
-        "Cebolla",
-        "Ajo",
-        "Tomate",
-        "Pimiento",
-        "Vino",
-        "Sal"
-      ],
-      "Prices": [
-        "1350",
-        "1450",
-        "1250",
-        "700",
-        "600",
-        "800",
-        "155",
-        "330",
-        "180",
-        "160",
-        "520",
-        "115"
-      ],
-      "Units": [
-        "lb",
-        "lb",
-        "lb",
-        "lb",
-        "lb",
-        "L",
-        "lb",
-        "lb",
-        "lb",
-        "lb",
-        "botella",
-        "lb"
-      ]
+      "Products": ["Carne Molida", "Bistec", "Chuletas", "Hígado", "Riñones", "Aceite", "Cebolla", "Ajo", "Tomate", "Pimiento", "Vino", "Sal"],
+      "Prices": ["1350", "1450", "1250", "700", "600", "800", "155", "330", "180", "160", "520", "115"],
+      "Units": ["lb", "lb", "lb", "lb", "lb", "L", "lb", "lb", "lb", "lb", "botella", "lb"]
     },
     "exchange_rate": "380"
   },
   "Supermercado La Tienda": {
-    "date": "2025-12-05",
+    "date": "2025-11-18",
     "time": "08:30 AM",
-    "geolocation": "23.1400,-82.3500",
-    "township": "Quivicán",
+    "geolocation": "23.0600,-82.4200",
+    "township": "Boyeros",
     "products_info": {
-      "Products": [
-        "Arroz",
-        "Aceite",
-        "Azúcar",
-        "Leche Evaporada",
-        "Café Instantáneo",
-        "Té",
-        "Galletas",
-        "Caramelos",
-        "Chicles",
-        "Chocolate",
-        "Helado",
-        "Refresco"
-      ],
-      "Prices": [
-        "310",
-        "810",
-        "235",
-        "300",
-        "700",
-        "470",
-        "320",
-        "180",
-        "130",
-        "900",
-        "210",
-        "160"
-      ],
-      "Units": [
-        "lb",
-        "L",
-        "lb",
-        "lata",
-        "pomo",
-        "caja",
-        "paquete",
-        "paquete",
-        "paquete",
-        "barra",
-        "litro",
-        "botella"
-      ]
+      "Products": ["Arroz", "Aceite", "Azúcar", "Leche Evaporada", "Café Instantáneo", "Té", "Galletas", "Caramelos", "Chicles", "Chocolate", "Helado", "Refresco"],
+      "Prices": ["310", "810", "235", "300", "700", "470", "320", "180", "130", "900", "210", "160"],
+      "Units": ["lb", "L", "lb", "lata", "pomo", "caja", "paquete", "paquete", "paquete", "barra", "litro", "botella"]
     },
     "exchange_rate": "383"
   },
   "Granja La Finca": {
-    "date": "2025-12-07",
+    "date": "2025-11-20",
     "time": "06:00 AM",
-    "geolocation": "23.1600,-82.3900",
-    "township": "Alquízar",
+    "geolocation": "23.1000,-82.4300",
+    "township": "Marianao",
     "products_info": {
-      "Products": [
-        "Leche Fresca",
-        "Queso",
-        "Mantequilla",
-        "Yogurt",
-        "Huevos",
-        "Pollo",
-        "Pavo",
-        "Pato",
-        "Conejo",
-        "Miel",
-        "Nata",
-        "Requesón"
-      ],
-      "Prices": [
-        "230",
-        "1050",
-        "850",
-        "260",
-        "56",
-        "1400",
-        "1800",
-        "1650",
-        "1300",
-        "1050",
-        "600",
-        "750"
-      ],
-      "Units": [
-        "L",
-        "lb",
-        "lb",
-        "pomo",
-        "unidad",
-        "lb",
-        "lb",
-        "lb",
-        "lb",
-        "pomo",
-        "pomo",
-        "lb"
-      ]
+      "Products": ["Leche Fresca", "Queso", "Mantequilla", "Yogurt", "Huevos", "Pollo", "Pavo", "Pato", "Conejo", "Miel", "Nata", "Requesón"],
+      "Prices": ["230", "1050", "850", "260", "56", "1400", "1800", "1650", "1300", "1050", "600", "750"],
+      "Units": ["L", "lb", "lb", "pomo", "unidad", "lb", "lb", "lb", "lb", "pomo", "pomo", "lb"]
     },
     "exchange_rate": "385"
   },
   "Panadería El Pan": {
-    "date": "2025-12-08",
+    "date": "2025-11-22",
     "time": "05:30 AM",
-    "geolocation": "23.1050,-82.3600",
-    "township": "Artemisa",
+    "geolocation": "23.0850,-82.3750",
+    "township": "Diez de Octubre",
     "products_info": {
-      "Products": [
-        "Harina",
-        "Levadura",
-        "Polvo de Hornear",
-        "Vainilla",
-        "Azúcar Glass",
-        "Aceite",
-        "Huevos",
-        "Leche",
-        "Mantequilla",
-        "Chocolate",
-        "Coco Rallado",
-        "Pasas"
-      ],
-      "Prices": [
-        "300",
-        "180",
-        "150",
-        "240",
-        "310",
-        "820",
-        "58",
-        "240",
-        "880",
-        "1030",
-        "470",
-        "600"
-      ],
-      "Units": [
-        "lb",
-        "paquete",
-        "paquete",
-        "pomo",
-        "paquete",
-        "L",
-        "unidad",
-        "L",
-        "lb",
-        "tableta",
-        "paquete",
-        "paquete"
-      ]
+      "Products": ["Harina", "Levadura", "Polvo de Hornear", "Vainilla", "Azúcar Glass", "Aceite", "Huevos", "Leche", "Mantequilla", "Chocolate", "Coco Rallado", "Pasas"],
+      "Prices": ["300", "180", "150", "240", "310", "820", "58", "240", "880", "1030", "470", "600"],
+      "Units": ["lb", "paquete", "paquete", "pomo", "paquete", "L", "unidad", "L", "lb", "tableta", "paquete", "paquete"]
     },
     "exchange_rate": "387"
   },
   "Pescadería El Mar": {
-    "date": "2025-12-09",
+    "date": "2025-11-24",
     "time": "05:00 AM",
-    "geolocation": "23.0750,-82.3850",
-    "township": "Batabanó",
+    "geolocation": "23.0800,-82.3200",
+    "township": "San Miguel del Padrón",
     "products_info": {
-      "Products": [
-        "Pargo",
-        "Cherna",
-        "Róbalo",
-        "Sierra",
-        "Atún",
-        "Camarones",
-        "Langosta",
-        "Cangrejo",
-        "Ostiones",
-        "Mejillones",
-        "Calamar",
-        "Limón"
-      ],
-      "Prices": [
-        "950",
-        "1050",
-        "1000",
-        "1100",
-        "1250",
-        "1900",
-        "2900",
-        "2150",
-        "1450",
-        "1200",
-        "1100",
-        "145"
-      ],
-      "Units": [
-        "lb",
-        "lb",
-        "lb",
-        "lb",
-        "lb",
-        "lb",
-        "lb",
-        "lb",
-        "lb",
-        "lb",
-        "lb",
-        "lb"
-      ]
+      "Products": ["Pargo", "Cherna", "Róbalo", "Sierra", "Atún", "Camarones", "Langosta", "Cangrejo", "Ostiones", "Mejillones", "Calamar", "Limón"],
+      "Prices": ["950", "1050", "1000", "1100", "1250", "1900", "2900", "2150", "1450", "1200", "1100", "145"],
+      "Units": ["lb", "lb", "lb", "lb", "lb", "lb", "lb", "lb", "lb", "lb", "lb", "lb"]
     },
     "exchange_rate": "389"
   },
   "Licorería El Trago": {
-    "date": "2025-12-10",
+    "date": "2025-11-26",
     "time": "11:00 AM",
-    "geolocation": "23.1350,-82.3850",
-    "township": "San Cristóbal",
+    "geolocation": "23.0800,-82.4500",
+    "township": "La Lisa",
     "products_info": {
-      "Products": [
-        "Jamón",
-        "Salami",
-        "Paté",
-        "Queso",
-        "Aceitunas",
-        "Pepinillos",
-        "Vino Tinto",
-        "Vino Blanco",
-        "Cerveza",
-        "Whisky",
-        "Ron",
-        "Vodka"
-      ],
-      "Prices": [
-        "1800",
-        "1050",
-        "820",
-        "1250",
-        "770",
-        "600",
-        "1400",
-        "1300",
-        "420",
-        "4250",
-        "2150",
-        "2600"
-      ],
-      "Units": [
-        "lb",
-        "lb",
-        "lata",
-        "lb",
-        "pomo",
-        "pomo",
-        "botella",
-        "botella",
-        "botella",
-        "botella",
-        "botella",
-        "botella"
-      ]
+      "Products": ["Jamón", "Salami", "Paté", "Queso", "Aceitunas", "Pepinillos", "Vino Tinto", "Vino Blanco", "Cerveza", "Whisky", "Ron", "Vodka"],
+      "Prices": ["1800", "1050", "820", "1250", "770", "600", "1400", "1300", "420", "4250", "2150", "2600"],
+      "Units": ["lb", "lb", "lata", "lb", "pomo", "pomo", "botella", "botella", "botella", "botella", "botella", "botella"]
     },
     "exchange_rate": "391"
   },
   "Tienda Orgánica": {
-    "date": "2025-12-11",
+    "date": "2025-11-28",
     "time": "08:45 AM",
-    "geolocation": "23.1250,-82.3950",
-    "township": "Candelaria",
+    "geolocation": "23.1350,-82.3450",
+    "township": "Regla",
     "products_info": {
-      "Products": [
-        "Arroz Integral",
-        "Quinoa",
-        "Avena",
-        "Granola",
-        "Aceite de Coco",
-        "Miel",
-        "Frutos Secos",
-        "Almendras",
-        "Nueces",
-        "Pistachos",
-        "Dátiles",
-        "Semillas de Chía"
-      ],
-      "Prices": [
-        "350",
-        "920",
-        "300",
-        "700",
-        "1750",
-        "1150",
-        "1400",
-        "1600",
-        "1500",
-        "1850",
-        "1050",
-        "1200"
-      ],
-      "Units": [
-        "lb",
-        "paquete",
-        "paquete",
-        "paquete",
-        "pomo",
-        "pomo",
-        "paquete",
-        "lb",
-        "lb",
-        "lb",
-        "paquete",
-        "paquete"
-      ]
+      "Products": ["Arroz Integral", "Quinoa", "Avena", "Granola", "Aceite de Coco", "Miel", "Frutos Secos", "Almendras", "Nueces", "Pistachos", "Dátiles", "Semillas de Chía"],
+      "Prices": ["350", "920", "300", "700", "1750", "1150", "1400", "1600", "1500", "1850", "1050", "1200"],
+      "Units": ["lb", "paquete", "paquete", "paquete", "pomo", "pomo", "paquete", "lb", "lb", "lb", "paquete", "paquete"]
     },
     "exchange_rate": "393"
   },
   "Bodega El Rincón": {
-    "date": "2025-12-12",
+    "date": "2025-12-01",
     "time": "09:30 AM",
-    "geolocation": "23.0950,-82.3750",
-    "township": "Güira de Melena",
+    "geolocation": "23.0500,-82.3800",
+    "township": "Arroyo Naranjo",
     "products_info": {
-      "Products": [
-        "Arroz",
-        "Aceite",
-        "Vinagre",
-        "Salsa de Soya",
-        "Salsa Inglesa",
-        "Ketchup",
-        "Mayonesa",
-        "Mostaza",
-        "Pepinillos",
-        "Sal",
-        "Pimienta",
-        "Azúcar"
-      ],
-      "Prices": [
-        "315",
-        "830",
-        "210",
-        "420",
-        "470",
-        "290",
-        "410",
-        "370",
-        "570",
-        "120",
-        "650",
-        "240"
-      ],
-      "Units": [
-        "lb",
-        "L",
-        "botella",
-        "botella",
-        "botella",
-        "pomo",
-        "pomo",
-        "pomo",
-        "pomo",
-        "lb",
-        "pomo",
-        "lb"
-      ]
+      "Products": ["Arroz", "Aceite", "Vinagre", "Salsa de Soya", "Salsa Inglesa", "Ketchup", "Mayonesa", "Mostaza", "Pepinillos", "Sal", "Pimienta", "Azúcar"],
+      "Prices": ["315", "830", "210", "420", "470", "290", "410", "370", "570", "120", "650", "240"],
+      "Units": ["lb", "L", "botella", "botella", "botella", "pomo", "pomo", "pomo", "pomo", "lb", "pomo", "lb"]
     },
     "exchange_rate": "395"
   },
   "Repostería Dulce Hogar": {
-    "date": "2025-12-13",
+    "date": "2025-12-03",
     "time": "07:30 AM",
-    "geolocation": "23.1450,-82.3700",
-    "township": "Bahía Honda",
+    "geolocation": "23.0400,-82.2900",
+    "township": "Cotorro",
     "products_info": {
-      "Products": [
-        "Empanadas",
-        "Croquetas",
-        "Tamales",
-        "Pastelitos",
-        "Flan",
-        "Arroz con Leche",
-        "Natilla",
-        "Tres Leches",
-        "Panetela",
-        "Cake",
-        "Galletas",
-        "Dulce de Leche"
-      ],
-      "Prices": [
-        "110",
-        "90",
-        "130",
-        "165",
-        "210",
-        "190",
-        "190",
-        "325",
-        "275",
-        "375",
-        "210",
-        "540"
-      ],
-      "Units": [
-        "unidad",
-        "unidad",
-        "unidad",
-        "unidad",
-        "porción",
-        "porción",
-        "porción",
-        "porción",
-        "unidad",
-        "porción",
-        "paquete",
-        "pomo"
-      ]
+      "Products": ["Empanadas", "Croquetas", "Tamales", "Pastelitos", "Flan", "Arroz con Leche", "Natilla", "Tres Leches", "Panetela", "Cake", "Galletas", "Dulce de Leche"],
+      "Prices": ["110", "90", "130", "165", "210", "190", "190", "325", "275", "375", "210", "540"],
+      "Units": ["unidad", "unidad", "unidad", "unidad", "porción", "porción", "porción", "porción", "unidad", "porción", "paquete", "pomo"]
     },
     "exchange_rate": "397"
   },
   "Agromercado La Tierra": {
-    "date": "2025-12-14",
+    "date": "2025-12-05",
     "time": "06:15 AM",
-    "geolocation": "23.1100,-82.4100",
-    "township": "Mariel",
+    "geolocation": "23.1100,-82.2900",
+    "township": "Guanabacoa",
     "products_info": {
-      "Products": [
-        "Papa",
-        "Zanahoria",
-        "Remolacha",
-        "Nabo",
-        "Rábano",
-        "Jengibre",
-        "Espinaca",
-        "Acelga",
-        "Berro",
-        "Apio",
-        "Perejil",
-        "Cilantro"
-      ],
-      "Prices": [
-        "95",
-        "95",
-        "90",
-        "70",
-        "165",
-        "325",
-        "80",
-        "75",
-        "58",
-        "105",
-        "48",
-        "48"
-      ],
-      "Units": [
-        "lb",
-        "lb",
-        "lb",
-        "lb",
-        "lb",
-        "lb",
-        "atado",
-        "atado",
-        "atado",
-        "atado",
-        "atado",
-        "atado"
-      ]
+      "Products": ["Papa", "Zanahoria", "Remolacha", "Nabo", "Rábano", "Jengibre", "Espinaca", "Acelga", "Berro", "Apio", "Perejil", "Cilantro"],
+      "Prices": ["95", "95", "90", "70", "165", "325", "80", "75", "58", "105", "48", "48"],
+      "Units": ["lb", "lb", "lb", "lb", "lb", "lb", "atado", "atado", "atado", "atado", "atado", "atado"]
     },
     "exchange_rate": "400"
+  },
+  "MiPyME Cojímar": {
+    "date": "2025-12-08",
+    "time": "09:00 AM",
+    "geolocation": "23.1500,-82.2800",
+    "township": "Habana del Este",
+    "products_info": {
+      "Products": ["Arroz", "Aceite", "Pollo", "Frijoles Negros", "Azúcar", "Café", "Sal", "Detergente", "Jabón", "Pasta", "Cebolla", "Ajo"],
+      "Prices": ["320", "840", "880", "400", "245", "1150", "125", "520", "130", "290", "160", "340"],
+      "Units": ["lb", "L", "lb", "lb", "lb", "lb", "lb", "paquete", "unidad", "paquete", "lb", "lb"]
+    },
+    "exchange_rate": "403"
+  },
+  "Bodega El Ahorro": {
+    "date": "2025-12-10",
+    "time": "08:15 AM",
+    "geolocation": "23.1136,-82.3666",
+    "township": "Centro Habana",
+    "products_info": {
+      "Products": ["Arroz", "Frijoles Colorados", "Aceite", "Azúcar", "Sal", "Café", "Pollo Congelado", "Huevos", "Detergente", "Jabón de Baño", "Pasta de Tomate", "Galletas de Sal"],
+      "Prices": ["325", "410", "850", "250", "128", "1180", "900", "58", "530", "110", "240", "310"],
+      "Units": ["lb", "lb", "L", "lb", "lb", "lb", "lb", "unidad", "paquete", "unidad", "lata", "paquete"]
+    },
+    "exchange_rate": "406"
+  },
+  "Agro-Plaza": {
+    "date": "2025-12-12",
+    "time": "07:45 AM",
+    "geolocation": "23.1330,-82.3830",
+    "township": "Plaza de la Revolución",
+    "products_info": {
+      "Products": ["Tomate", "Cebolla", "Ajo", "Pimiento", "Limón", "Aguacate", "Calabaza", "Pepino", "Yuca", "Boniato", "Malanga", "Plátano"],
+      "Prices": ["180", "165", "350", "160", "145", "220", "55", "65", "70", "60", "75", "90"],
+      "Units": ["lb", "lb", "lb", "lb", "lb", "unidad", "lb", "lb", "lb", "lb", "lb", "lb"]
+    },
+    "exchange_rate": "409"
+  },
+  "Carnicería La Perla": {
+    "date": "2025-12-14",
+    "time": "07:00 AM",
+    "geolocation": "23.1050,-82.3900",
+    "township": "Habana Vieja",
+    "products_info": {
+      "Products": ["Pollo Deshuesado", "Carne de Cerdo", "Bistec de Res", "Chorizo Criollo", "Jamón Viking", "Mortadela Especial", "Hígado de Res", "Costillas Ahumadas", "Aceite", "Naranja Agria", "Ajo", "Pimienta"],
+      "Prices": ["950", "1150", "1400", "980", "1100", "580", "700", "1300", "860", "130", "360", "650"],
+      "Units": ["lb", "lb", "lb", "lb", "lb", "lb", "lb", "lb", "L", "unidad", "lb", "pomo"]
+    },
+    "exchange_rate": "412"
   }
 }

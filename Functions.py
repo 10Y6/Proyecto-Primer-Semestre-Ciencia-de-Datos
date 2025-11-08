@@ -70,6 +70,7 @@ def filter_by(category, value):
     #to isolate data 
     #all data of a mipyme
     #all prices of a product
+    #all products in a township
     data_list = data_to_list()
     filtred_list = []
     if category == "product":
@@ -89,12 +90,25 @@ def filter_by(category, value):
                 price = mipymes["price"]
                 filtred_list.append((product,int(price)))
         return filtred_list
+    elif category == "township":
+        for key in data_list:
+            if value.lower() == key["township"].lower():
+                dicti = {
+                    "product":key["product"],
+                    "price":key["price"],
+                    "exchange_rate":key["exchange_rate"],
+                    "mipyme_name":key["mipyme_name"]
+                }
+                filtred_list.append(dicti)
+        return filtred_list
+                
 
 def calculate_statistics(value_list):
     #calculate statitics 
     len_list = len(value_list)
+    value_list = sorted(value_list)
     mean = sum(value_list)/len_list
-    median = sum(sorted(value_list)[len_list//2-1:len_list//2])//2 if len_list % 2 == 0 else sorted(value_list)[len_list//2-1]
+    median = sum(value_list[len_list//2-1:len_list//2])/2 if len_list % 2 == 0 else value_list[len_list//2]
     range_ = abs(min(value_list)-max(value_list))
     variance = sum([(x-mean)**2 for x in value_list])/(len_list-1)
     standard_deviation = variance**(1/2)
