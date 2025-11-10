@@ -82,14 +82,12 @@ def filter_by(category, value):
                     "township":key["township"],
                 }
                 filtred_list.append(dicti)
-        return filtred_list
     elif category == "mipyme":
         for mipymes in data_list:
             if mipymes["mipyme_name"] == value:
                 product = mipymes["product"]
                 price = mipymes["price"]
                 filtred_list.append((product,int(price)))
-        return filtred_list
     elif category == "township":
         for key in data_list:
             if value.lower() == key["township"].lower():
@@ -100,7 +98,7 @@ def filter_by(category, value):
                     "mipyme_name":key["mipyme_name"]
                 }
                 filtred_list.append(dicti)
-        return filtred_list
+    return filtred_list
                 
 
 def calculate_statistics(value_list):
@@ -123,15 +121,6 @@ def calculate_statistics(value_list):
         "variance":round(variance,2),
         "standard_deviation":round(standard_deviation,2),
     }
-
-def organize_by(category):
-    #organize data by a categroy
-    if category ==  "township":
-        pass
-    elif category == "product":
-        pass
-    elif category == "mipyme":
-        pass
     
 def product_vs_exchange(product_list,exchange_list):
     pass
