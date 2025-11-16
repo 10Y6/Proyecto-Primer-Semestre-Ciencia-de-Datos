@@ -5,15 +5,15 @@ class Manager():
         self.product_name = product_name
         self.product_price = product_price
         self.produce_unit = product_unit
-        self.product_quant = product_quant
         
     def product_board(self):
-        self.product_quant = int(input("product_quant: "))
         aux_name = []
         aux_price = []
         aux_unit = []
-        for _ in range(self.product_quant):
+        while True:
             self.product_name = input("product_name: ")
+            if self.product_name == "-1":break
+            
             self.product_price = input("product_price: ")
             self.product_unit = input("product_unit: ")
             aux_name.append(self.product_name)
