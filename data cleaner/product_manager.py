@@ -14,7 +14,7 @@ class Manager():
             self.product_name = input("product_name: ")
             if self.product_name == "-1":break
             
-            self.product_price = input("product_price: ")
+            self.product_price = str(round(eval(input("product_price: ")),2))
             self.product_unit = input("product_unit: ")
             aux_name.append(self.product_name)
             aux_price.append(self.product_price)
