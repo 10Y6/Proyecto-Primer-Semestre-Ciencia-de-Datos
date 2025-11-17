@@ -5,7 +5,7 @@
         "geolocation": "23.1508751, -82.3062920",
         "township": "Habana del Este",
         "products_info": {
-            "Products: ": [
+            "Products": [
                 "galletas rellenitas",
                 "galletas dode deleite",
                 "chocolate/almendra",
@@ -41,7 +41,7 @@
                 "mortadella de pollo",
                 "arroz bolsa"
             ],
-            "Prices: ": [
+            "Prices": [
                 "120",
                 "120",
                 "155",
@@ -77,7 +77,7 @@
                 "530",
                 "690"
             ],
-            "Units: ": [
+            "Units": [
                 "paquete",
                 "paquete",
                 "unidad",
@@ -122,7 +122,7 @@
         "geolocation": "23.1377107, -82.3846383",
         "township": "Plaza de la Revolucion",
         "products_info": {
-            "Products: ": [
+            "Products": [
                 "jamon viking",
                 "jamon embuchado",
                 "lomo deshuesado ahumado",
@@ -141,7 +141,7 @@
                 "croquetas",
                 "quezo gouda"
             ],
-            "Prices: ": [
+            "Prices": [
                 "750",
                 "950",
                 "1300",
@@ -160,7 +160,7 @@
                 "320",
                 "1900"
             ],
-            "Units: ": [
+            "Units": [
                 "lb",
                 "lb",
                 "lb",
@@ -188,7 +188,7 @@
         "geolocation": "23.1609613, -82.3062481",
         "township": "Plaza de la Revolucion",
         "products_info": {
-            "Products: ": [
+            "Products": [
                 "bandeja de lomo ahumado",
                 "medallones",
                 "picadillo mdm",
@@ -241,7 +241,7 @@
                 "maquina de afeitar",
                 "detergente"
             ],
-            "Prices: ": [
+            "Prices": [
                 "1350",
                 "300",
                 "360",
@@ -294,7 +294,7 @@
                 "1000",
                 "630"
             ],
-            "Units: ": [
+            "Units": [
                 "lb",
                 "paquete 5u",
                 "lb",
@@ -356,7 +356,7 @@
         "geolocation": "23.1484474, -82.3025972",
         "township": "Plaza de la Revolucion",
         "products_info": {
-            "Products: ": [
+            "Products": [
                 "pechuga de pollo",
                 "pechuga de pollo troceada",
                 "pechuga de pollo paquete",
@@ -414,7 +414,7 @@
                 "atun",
                 "frijo colorado"
             ],
-            "Prices: ": [
+            "Prices": [
                 "1100",
                 "550",
                 "4840",
@@ -470,7 +470,7 @@
                 "500",
                 "850"
             ],
-            "Units: ": [
+            "Units": [
                 "lb",
                 "lb",
                 "22kg",
@@ -536,7 +536,7 @@
         "geolocation": "23.1290988, -82.3970164",
         "township": "Plaza de la Revolucion",
         "products_info": {
-            "Products: ": [
+            "Products": [
                 "boniato",
                 "malanga",
                 "frijol negro",
@@ -573,7 +573,7 @@
                 "paquete de perro",
                 "pechuga de pollo"
             ],
-            "Prices: ": [
+            "Prices": [
                 "45",
                 "110",
                 "285",
@@ -610,7 +610,7 @@
                 "3000",
                 "2600"
             ],
-            "Units: ": [
+            "Units": [
                 "lb",
                 "lb",
                 "lb",
@@ -656,7 +656,7 @@
         "geolocation": "23.1286326, -82.3979119",
         "township": "Plaza de la Revolucion",
         "products_info": {
-            "Products: ": [
+            "Products": [
                 "bombones",
                 "peters",
                 "galletas elegance",
@@ -708,7 +708,7 @@
                 "huevos",
                 "carton huevos"
             ],
-            "Prices: ": [
+            "Prices": [
                 "45",
                 "180",
                 "170",
@@ -760,7 +760,7 @@
                 "95",
                 "2850"
             ],
-            "Units: ": [
+            "Units": [
                 "unidad",
                 "unidad",
                 "paquete",
@@ -821,7 +821,7 @@
         "geolocation": "23.1299782, -82.3957608",
         "township": "Plaza de la Revolucion",
         "products_info": {
-            "Products: ": [
+            "Products": [
                 "frijoles negros",
                 "leche en polvo",
                 "arroz",
@@ -860,7 +860,7 @@
                 "cafe bryderk",
                 "pasta de tomate"
             ],
-            "Prices: ": [
+            "Prices": [
                 "400",
                 "1670",
                 "700",
@@ -899,7 +899,7 @@
                 "2000",
                 "300"
             ],
-            "Units: ": [
+            "Units": [
                 "lb",
                 "1kg",
                 "1kg",
@@ -947,7 +947,7 @@
         "geolocation": "23.1333700, -82.3916955",
         "township": "Plaza de la Revolucion",
         "products_info": {
-            "Products: ": [
+            "Products": [
                 "coditos",
                 "salsa ranchera",
                 "salsa de tomate con queso",
@@ -965,7 +965,7 @@
                 "destupidor de cañerias",
                 "detergente stb"
             ],
-            "Prices: ": [
+            "Prices": [
                 "207.5",
                 "415",
                 "415",
@@ -983,7 +983,7 @@
                 "3237.0",
                 "456.50"
             ],
-            "Units: ": [
+            "Units": [
                 "paquete",
                 "bolsa",
                 "bolsa",
@@ -1003,5 +1003,116 @@
             ]
         },
         "exchange_rate": "415"
+    },
+    "Lo D Yona": {
+        "date": "2025-10-30",
+        "time": "15:58",
+        "geolocation": "23.1492449, -82.3046699",
+        "township": "Habana del Este",
+        "products_info": {
+            "Products": [
+                "crema de pelo",
+                "cepillo dental",
+                "gel de pelo",
+                "talco",
+                "desodorante",
+                "champu acondicionador",
+                "champu",
+                "intima",
+                "esponjas de fregar",
+                "estropajo de aluminio",
+                "jabon de ba\u00f1o",
+                "arroz importado",
+                "arroz importado paquete",
+                "azucar",
+                "sal",
+                "harina de trigo",
+                "coditos",
+                "spagettis",
+                "pasta de tomate",
+                "mayonesa",
+                "sazon iberia",
+                "sazon tropical",
+                "sazon aura",
+                "sazon gova",
+                "caldo pollo",
+                "leche condensada",
+                "cafe dualis",
+                "cafe serrano",
+                "malta morena",
+                "bombones",
+                "chupa chupa",
+                "galletas blackout"
+            ],
+            "Prices": [
+                "1000",
+                "150",
+                "2000",
+                "1000",
+                "600",
+                "2600",
+                "1500",
+                "400",
+                "600",
+                "150",
+                "200",
+                "280",
+                "650",
+                "700",
+                "150",
+                "300",
+                "350",
+                "320",
+                "450",
+                "750",
+                "60",
+                "60",
+                "60",
+                "60",
+                "50",
+                "550",
+                "1600",
+                "5000",
+                "200",
+                "35",
+                "45",
+                "150"
+            ],
+            "Units": [
+                "1000ml",
+                "unidad",
+                "pote",
+                "pote",
+                "unidad",
+                "pomo",
+                "pomo",
+                "paquete",
+                "paquete",
+                "unidad",
+                "unidad",
+                "lb",
+                "1kg",
+                "1kg",
+                "lb",
+                "lb",
+                "paquete",
+                "paquete",
+                "500g",
+                "500g",
+                "unidad",
+                "unidad",
+                "unidad",
+                "unidad",
+                "unidad",
+                "lata",
+                "paquete",
+                "paquete",
+                "lata",
+                "unidad",
+                "unidad",
+                "paquete"
+            ]
+        },
+        "exchange_rate": "480"
     }
 }

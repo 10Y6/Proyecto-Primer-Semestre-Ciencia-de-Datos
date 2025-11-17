@@ -20,9 +20,9 @@ class Manager():
             aux_price.append(self.product_price)
             aux_unit.append(self.product_unit)
         aux_dict = {
-            "Products: ": aux_name,
-            "Prices: " : aux_price,
-            "Units: " : aux_unit
+            "Products": aux_name,
+            "Prices" : aux_price,
+            "Units" : aux_unit
         }
         return aux_dict
         
