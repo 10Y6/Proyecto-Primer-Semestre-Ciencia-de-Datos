@@ -41,22 +41,24 @@ def data_to_list():
     #convert data to a list of dictionaries
     data = load_json()
     data_list = []
-    for name,values in data.items():
-        for key,value in values.items():
+    for name,myp_info in data.items():
+        for key,value in myp_info.items():
             if key == "products_info":
                 for index in range(len(value["Products"])):
+                    print(value["Products"][index])
                     dicti = {
                         "mipyme_name":name,
-                        "date":values["date"],
-                        "time":values["time"],
-                        "geolocation":values["geolocation"],
-                        "township":values["township"],
+                        "date":myp_info["date"],
+                        "time":myp_info["time"],
+                        "geolocation":myp_info["geolocation"],
+                        "township":myp_info["township"],
                         "product":value["Products"][index],
                         "price":value["Prices"][index],
                         "units":value["Units"][index],
-                        "exchange_rate":values["exchange_rate"]
+                        "exchange_rate":myp_info["exchange_rate"]
                     }
                     data_list.append(dicti)
+                print("----------------")
     return data_list
 
 def print_data_list():
@@ -125,5 +127,7 @@ def calculate_statistics(value_list):
 def product_vs_exchange(product_list,exchange_list):
     pass
 
+
+print(data_to_list())
 
 
