@@ -45,7 +45,6 @@ def data_to_list():
         for key,value in myp_info.items():
             if key == "products_info":
                 for index in range(len(value["Products"])):
-                    print(value["Products"][index])
                     dicti = {
                         "mipyme_name":name,
                         "date":myp_info["date"],
@@ -58,7 +57,6 @@ def data_to_list():
                         "exchange_rate":myp_info["exchange_rate"]
                     }
                     data_list.append(dicti)
-                print("----------------")
     return data_list
 
 def print_data_list():
@@ -89,7 +87,7 @@ def filter_by(category, value):
             if mipymes["mipyme_name"] == value:
                 product = mipymes["product"]
                 price = mipymes["price"]
-                filtred_list.append((product,int(price)))
+                filtred_list.append((product,float(price)))
     elif category == "township":
         for key in data_list:
             if value.lower() == key["township"].lower():
@@ -126,8 +124,5 @@ def calculate_statistics(value_list):
 
 def product_vs_exchange(product_list,exchange_list):
     pass
-
-
-print(data_to_list())
 
 
