@@ -1,6 +1,5 @@
 import datetime
-from data_fill import current_date_time as cdt
-
+from data_fill import date_time as dt
 
 while True:
     pass
