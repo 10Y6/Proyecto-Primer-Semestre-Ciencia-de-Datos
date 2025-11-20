@@ -15,7 +15,7 @@ def date_time(date):
         data = data[f"{date_date}"]
     dict_ =  {
         "date":date_date,
-        "time":date_time,
+        #"time":date_time,
         "exchange_rate":data
     }
     return dict_
