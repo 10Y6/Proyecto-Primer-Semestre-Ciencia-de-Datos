@@ -1,16 +1,18 @@
 from models import Mipyme
 from product_manager import Manager
 
-mipyme = Mipyme()
 manager = Manager()
 
 while True:
-    mipyme.name = input("name: ")
-    if mipyme.name == "-1":break
-    mipyme.date = input("date: ")
-    mipyme.time = input("time: ")
-    mipyme.geoloc = input("geoloc: ")
-    mipyme.township = input("township: ")
-    mipyme.products_info = manager.product_board()
-    mipyme.exchange_rate = input("exchange_rate: ")  
+    #inputs
+    name = input("name: ")
+    if name == "-1":break
+    date = input("date: ")
+    time = input("time: ")
+    geoloc = input("geoloc: ")
+    township = input("township: ")
+    products_info = manager.product_board()
+    #
+    mipyme = Mipyme(name,date,time,geoloc,township,products_info=products_info)
+    print(mipyme.exchange_rate)
     mipyme.add_mipyme()
