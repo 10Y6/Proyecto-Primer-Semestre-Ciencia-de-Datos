@@ -121,8 +121,3 @@ def calculate_statistics(value_list):
         "variance":round(variance,2),
         "standard_deviation":round(standard_deviation,2),
     }
-
-def product_vs_exchange(product_list,exchange_list):
-    pass
-
-
