@@ -1,0 +1,29 @@
+{
+    "2025-11-21": {
+        "exchange_rate": "435",
+        "products": [
+            "aceite",
+            "paquete muslo de pollo"
+        ],
+        "prices": [
+            "1300",
+            "3800"
+        ],
+        "units": [
+            "1L",
+            "10lb"
+        ]
+    },
+    "2025-10-30": {
+        "exchange_rate": "480",
+        "products": [
+            "aceite"
+        ],
+        "prices": [
+            "960"
+        ],
+        "units": [
+            "1L"
+        ]
+    }
+}

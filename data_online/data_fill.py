@@ -1,6 +1,10 @@
 #get automatically date and time
 import json
 import datetime
+import os
+
+route_path = os.path.dirname(os.path.abspath(__file__))
+route = os.path.join(route_path,"exchange_rate.json")
 
 def date_time(date):
     #return the current date
@@ -9,7 +13,7 @@ def date_time(date):
         date = datetime.datetime.strptime(date,"%Y-%m-%d")
     date_time = date.strftime("%H:%M")
     date_date = date.strftime(r"%Y-%m-%d")
-    with open("exchange_rate.json",'r') as file:
+    with open(route,'r') as file:
         data = file.read()
         data = json.loads(data)
         data = data[f"{date_date}"]
