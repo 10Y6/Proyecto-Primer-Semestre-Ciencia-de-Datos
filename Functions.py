@@ -112,15 +112,15 @@ def data_to_list():
             if key == "products_info":
                 for index in range(len(value["Products"])):
                     dicti = {
-                        "mipyme_name":name,
+                        "mipyme_name":normalize_text(name),
                         "date":myp_info["date"],
                         "time":myp_info["time"],
                         "geolocation":myp_info["geolocation"],
-                        "township":myp_info["township"],
-                        "product":value["Products"][index],
-                        "price":value["Prices"][index],
-                        "units":value["Units"][index],
-                        "exchange_rate":myp_info["exchange_rate"]
+                        "township":normalize_text(myp_info["township"]),
+                        "product":normalize_text(value["Products"][index]),
+                        "price":normalize_numbers(value["Prices"][index]),
+                        "units":normalize_units(value["Units"][index]),
+                        "exchange_rate":normalize_numbers(myp_info["exchange_rate"])
                     }
                     data_list.append(dicti)
     return data_list
