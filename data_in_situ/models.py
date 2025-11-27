@@ -4,14 +4,14 @@ import json
 
 #json route
 to_do_route =  os.path.dirname(os.path.abspath(__file__))
-cache_route = os.path.join(to_do_route,"cache_real.json")
+cache_route = os.path.join(to_do_route,"db_in_situ.json")
 
 
 
 
 class Mipyme():
     def __init__(self,name=None,date=None,time=None,geoloc=None,
-                 township=None,products_info=[],exchange_rate=" "):
+                 township=None,products_info=[],exchange_rate=None):
         self.name = name 
         self.date = date
         self.time = time
@@ -19,11 +19,11 @@ class Mipyme():
         self.township = township
         self.products_info = products_info
         
-        exchange_rate_route = os.path.dirname(os.path.abspath(__file__))
-        exchange_rate_route = os.path.join(exchange_rate_route,"../")
-        exchange_rate_route_abs = os.path.join(exchange_rate_route,"exchange_rate.json")
+        exch_rate = os.path.dirname(os.path.abspath(__file__))
+        exch_rate = os.path.join(exch_rate,"../")
+        exch_rate_route = os.path.join(exch_rate,"db_exch_rate.json")
         
-        with open(exchange_rate_route_abs,'r') as file: 
+        with open(exch_rate_route,'r') as file: 
             aux = json.loads(file.read())
             self.exchange_rate = aux[f"{self.date}"]
         

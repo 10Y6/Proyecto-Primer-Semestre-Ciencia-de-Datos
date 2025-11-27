@@ -3,17 +3,18 @@ import json
 import datetime
 import os
 
-route_path = os.path.dirname(os.path.abspath(__file__))
-route = os.path.join(route_path,"exchange_rate.json")
+exch_rate = os.path.dirname(os.path.abspath(__file__))
+exch_rate = os.path.join(exch_rate,"../")
+exch_rate_route = os.path.join(exch_rate,"db_exch_rate.json")
 
 def date_time(date):
     #return the current date
     #for now ignore the time
     if isinstance(date,str):
         date = datetime.datetime.strptime(date,"%Y-%m-%d")
-    date_time = date.strftime("%H:%M")
+    #date_time = date.strftime("%H:%M")
     date_date = date.strftime(r"%Y-%m-%d")
-    with open(route,'r') as file:
+    with open(exch_rate_route,'r') as file:
         data = file.read()
         data = json.loads(data)
         data = data[f"{date_date}"]

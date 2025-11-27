@@ -32,13 +32,13 @@
             "pasta dental",
             "detergente",
             "detergente eco9",
-            "jabon de ba\u00f1o",
+            "jabon de baño",
             "jabon de lavar",
             "champu",
             "pasta dental royal fresh",
-            "lehe condensada",
+            "leche condensada",
             "pasta tomate",
-            "jabon"
+            "jabon de baño"
         ],
         "prices": [
             "230",
@@ -90,10 +90,10 @@
             "carton de huevos",
             "spaguetti",
             "pasta de tomate",
-            "jabon de ba\u00f1o"
+            "jabon de baño"
         ],
         "prices": [
-            "125000",
+            "12500",
             "3300",
             "1350",
             "2500",
@@ -164,7 +164,7 @@
     "2025-11-24": {
         "exchange_rate": "435",
         "products": [
-            "jabon de ba\u00f1o"
+            "jabon de baño"
         ],
         "prices": [
             "125"
@@ -177,7 +177,7 @@
         "exchange_rate": "435",
         "products": [
             "detergente",
-            "jabon de ba\u00f1o",
+            "jabon de baño",
             "harina",
             "pasta dental royal fresh",
             "papel sanitario paquete",
@@ -186,13 +186,13 @@
             "medallo de chorizo",
             "hamburguesas de pollo",
             "hamburguesas de cerdo",
-            "jabon de ba\u00f1o",
+            "jabon de baño",
             "jabon de lavar",
             "detergente",
             "pasta dental",
             "champu",
             "toallitas humedas",
-            "spaguetis",
+            "spaguetti",
             "jamonada de pollo",
             "miel pura",
             "salsa china",
@@ -200,10 +200,10 @@
             "jabon de lavar",
             "caja de pollo",
             "pechuga de pollo",
-            "paquete de perrito",
+            "paquete salchicha",
             "lomo de cerdo",
             "cerveza la fria",
-            "spaguetis"
+            "spaguetti"
         ],
         "prices": [
             "400",
@@ -231,7 +231,7 @@
             "12400",
             "10000",
             "3800",
-            "124000",
+            "12400",
             "200",
             "235"
         ],
@@ -270,13 +270,13 @@
         "exchange_rate": "475",
         "products": [
             "caja de pollo",
-            "picadillo mdm brasile\u00f1o",
-            "paquete de perrito",
+            "picadillo mdm brasileño",
+            "paquete salchicha",
             "pechuga de pollo",
             "molleja de pollo"
         ],
         "prices": [
-            "135000",
+            "13500",
             "10200",
             "3800",
             "5500",
@@ -311,7 +311,7 @@
             "paquete papel higienico",
             "pasta dental",
             "aceite",
-            "jabon de ba\u00f1o",
+            "jabon de baño",
             "toallitas humedas",
             "detergente"
         ],
@@ -348,7 +348,7 @@
             "masa de cerdo",
             "lomo entero",
             "chuleta deshuesada",
-            "chuelta deshuesada",
+            "chuleta deshuesada",
             "chuleta ahumada",
             "higado de res"
         ],

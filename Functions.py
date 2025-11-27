@@ -3,39 +3,105 @@ import json
 
 def load_json():
     file_path = os.path.dirname(os.path.abspath(__file__))
-    cache_path = os.path.join(file_path,"data_in_situ/cache_real.json")
+    cache_path = os.path.join(file_path,"data_in_situ/db_in_situ.json")
     
     with open(cache_path,'r') as file:
         data = file.read()
         data = json.loads(data)
     return dict(data)
 
-def print_data(mipyme_name):
-    #specific data from a mipyme
-    data = load_json()[mipyme_name]
-    for key, value in data.items():
-        if key == "products_info":
-            print("Products_info")
-            products = value["Products"]
-            prices = value["Prices"]
-            units = value["Units"]
-            spc_sep = max(len(x) for x in products)
-            spc_sep2 = max(len(x) for x in prices)
-            for index in range(len(value["Products"])):
-                print(products[index]," "*(spc_sep-len(products[index])),end="")
-                print(prices[index]," "*(spc_sep2-len(prices[index])),end="")
-                print(units[index])
-        else:
-            print(key,": ",sep="",end="")
-            print(value)
+def normalize_text(text):
+    text = text.lower().strip()
+    types = {
+        "pasta dental":"pasta dental",
+        "perrito":"salchicha",
+        "perro":"salchicha",
+        "salchicha":"salchicha",
+        "cerveza":"cerveza",
+        "ron":"ron",
+        "vino":'vino',
+        "spaguettis":"spaguettis"
+    }
+    for error,right in types.items(): 
+        if error in text:
+            text = right
+            break   
+    return text
 
-def get_keys():
-    #to get the mypime names
-    json = load_json()
-    keys = []
-    for key in json.keys():
-        keys.append(key)
-    return keys
+def normalize_units(text):
+    #lb to kg
+    #g to kg
+    #ml to L
+    #unidades to u
+    number = 0
+    unit = ""
+    #excepciones para unidades
+    #lata,tubo,paquete,pqt
+    units = ['lata','paquete','tubo','pqt','unidad','unidades','bolsa']
+    for exceptions in units:
+        if exceptions in text:
+            unit = "u"
+            text = text.strip()
+            text = text.strip('lata')
+            text = text.strip('paquete')
+            text = text.strip('tubo')
+            text = text.strip('unidades')
+            text = text.strip('unidad')
+            
+            try:
+                number = float(text)
+            except:
+                number = 1
+            return (number,unit)
+        elif 'carton' in text:
+            return (30,'u')
+        
+    #casos 
+    if 'lb' in text or 'lbs' in text:
+        unit = "kg"
+        text = text.strip()
+        text = text.strip('lbs')
+        text = text.strip('lb')
+        try:
+            number = float(text) * 0.453
+        except:
+            number = 0.453
+    elif 'g' in text and not 'kg' in text:
+        unit = "kg"
+        text = text.strip()
+        text = text.strip('g')
+        number = float(text) * 0.001
+    elif 'ml' in text:
+        unit = "L"
+        text = text.strip()
+        text = text.strip('ml')
+        try:
+            number = float(text) * 0.001
+        except:
+            number = 1
+    elif 'kg' in text:
+        unit = "kg"
+        text = text.strip()
+        text = text.strip('kg')
+        try:
+            number = float(text)
+        except:
+            number = 1
+    elif 'l' in text or 'L' in text:
+        unit = "L"
+        text = text.strip()
+        text = text.strip('l')
+        text = text.strip('L')
+        try:
+            number = float(text)
+        except:
+            number = 1
+    
+    return (number,unit)
+
+def normalize_numbers(texto):
+    return int(texto)
+
 
 def data_to_list():
     #convert data to a list of dictionaries
@@ -59,12 +125,6 @@ def data_to_list():
                     data_list.append(dicti)
     return data_list
 
-def print_data_list():
-    #for visualize all data in data list
-    for i in data_to_list():
-        for key,value in i.items():
-            print(key,": ",end="")
-            print(value)
 
 def filter_by(category, value):
     #to isolate data 
@@ -100,7 +160,7 @@ def filter_by(category, value):
                 filtred_list.append(dicti)
     return filtred_list
                 
-
+                
 def calculate_statistics(value_list):
     #calculate statitics 
     len_list = len(value_list)
@@ -121,3 +181,41 @@ def calculate_statistics(value_list):
         "variance":round(variance,2),
         "standard_deviation":round(standard_deviation,2),
     }
+    
+#
+#debug functions
+#
+
+def print_data(mipyme_name):
+    #specific data from a mipyme
+    data = load_json()[mipyme_name]
+    for key, value in data.items():
+        if key == "products_info":
+            print("Products_info")
+            products = value["Products"]
+            prices = value["Prices"]
+            units = value["Units"]
+            spc_sep = max(len(x) for x in products)
+            spc_sep2 = max(len(x) for x in prices)
+            for index in range(len(value["Products"])):
+                print(products[index]," "*(spc_sep-len(products[index])),end="")
+                print(prices[index]," "*(spc_sep2-len(prices[index])),end="")
+                print(units[index])
+        else:
+            print(key,": ",sep="",end="")
+            print(value)
+
+def get_keys():
+    #to get the mypime names
+    json = load_json()
+    keys = []
+    for key in json.keys():
+        keys.append(key)
+    return keys
+
+def print_data_list():
+    #for visualize all data in data list
+    for i in data_to_list():
+        for key,value in i.items():
+            print(key,": ",end="")
+            print(value)
