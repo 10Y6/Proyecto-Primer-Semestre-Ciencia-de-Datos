@@ -25,5 +25,368 @@
         "units": [
             "1L"
         ]
+    },
+    "2025-11-20": {
+        "exchange_rate": "440",
+        "products": [
+            "pasta dental",
+            "detergente",
+            "detergente eco9",
+            "jabon de ba\u00f1o",
+            "jabon de lavar",
+            "champu",
+            "pasta dental royal fresh",
+            "lehe condensada",
+            "pasta tomate",
+            "jabon"
+        ],
+        "prices": [
+            "230",
+            "305",
+            "610",
+            "105",
+            "320",
+            "600",
+            "365",
+            "400",
+            "285",
+            "105"
+        ],
+        "units": [
+            "tubo",
+            "400g",
+            "kg",
+            "unidad",
+            "unidad",
+            "400ml",
+            "tubo",
+            "lata",
+            "pote",
+            "unidad"
+        ]
+    },
+    "2025-11-22": {
+        "exchange_rate": "435",
+        "products": [
+            "caja de pollo grande",
+            "papas prefritas",
+            "sidra",
+            "leche entera",
+            "escalopin de res",
+            "pierna ahumada",
+            "carne molida de res",
+            "cerdo deshuesado",
+            "bistec de cerdo",
+            "masa de cerdo",
+            "chuleta deshuesada",
+            "carne molida de res",
+            "cerdo deshuesado",
+            "bistec de cerdo",
+            "masa de cerdo",
+            "chuleta deshuesada",
+            "chuleta deshuesada",
+            "chuletas ahumadas",
+            "masa de cangrejo",
+            "carton de huevos",
+            "spaguetti",
+            "pasta de tomate",
+            "jabon de ba\u00f1o"
+        ],
+        "prices": [
+            "125000",
+            "3300",
+            "1350",
+            "2500",
+            "1100",
+            "3350",
+            "2000",
+            "6200",
+            "3000",
+            "3000",
+            "3000",
+            "2000",
+            "6200",
+            "3000",
+            "3000",
+            "3000",
+            "5900",
+            "3200",
+            "2500",
+            "3000",
+            "270",
+            "360",
+            "110"
+        ],
+        "units": [
+            "33lb",
+            "2.5kg",
+            "botella",
+            "1kg",
+            "1kg",
+            "1kg",
+            "kg",
+            "5lb",
+            "kg",
+            "kg",
+            "kg",
+            "kg",
+            "5lb",
+            "kg",
+            "kg",
+            "kg",
+            "2kg",
+            "kg",
+            "kg",
+            "carton",
+            "paquete",
+            "400g",
+            "unidad"
+        ]
+    },
+    "2025-11-23": {
+        "exchange_rate": "435",
+        "products": [
+            "hamburguesas",
+            "toallitas humedas",
+            "mayonesa"
+        ],
+        "prices": [
+            "450",
+            "600",
+            "820"
+        ],
+        "units": [
+            "5 unidades",
+            "paquete",
+            "500g"
+        ]
+    },
+    "2025-11-24": {
+        "exchange_rate": "435",
+        "products": [
+            "jabon de ba\u00f1o"
+        ],
+        "prices": [
+            "125"
+        ],
+        "units": [
+            "unidad"
+        ]
+    },
+    "2025-11-25": {
+        "exchange_rate": "435",
+        "products": [
+            "detergente",
+            "jabon de ba\u00f1o",
+            "harina",
+            "pasta dental royal fresh",
+            "papel sanitario paquete",
+            "colonia bonabel",
+            "croqueta de chorizo",
+            "medallo de chorizo",
+            "hamburguesas de pollo",
+            "hamburguesas de cerdo",
+            "jabon de ba\u00f1o",
+            "jabon de lavar",
+            "detergente",
+            "pasta dental",
+            "champu",
+            "toallitas humedas",
+            "spaguetis",
+            "jamonada de pollo",
+            "miel pura",
+            "salsa china",
+            "ron cubay",
+            "jabon de lavar",
+            "caja de pollo",
+            "pechuga de pollo",
+            "paquete de perrito",
+            "lomo de cerdo",
+            "cerveza la fria",
+            "spaguetis"
+        ],
+        "prices": [
+            "400",
+            "150",
+            "550",
+            "600",
+            "500",
+            "1050",
+            "160",
+            "230",
+            "90",
+            "120",
+            "120",
+            "380",
+            "360",
+            "320",
+            "800",
+            "650",
+            "280",
+            "320",
+            "240",
+            "180",
+            "280",
+            "200",
+            "12400",
+            "10000",
+            "3800",
+            "124000",
+            "200",
+            "235"
+        ],
+        "units": [
+            "500g",
+            "unidad",
+            "kg",
+            "tubo",
+            "4 unidades",
+            "pomo",
+            "10 unidades",
+            "6 unidades",
+            "unidad",
+            "unidad",
+            "100g",
+            "unidad",
+            "500g",
+            "tubo",
+            "400ml",
+            "paquete",
+            "500g",
+            "300g",
+            "230ml",
+            "240ml",
+            "200ml",
+            "unidad",
+            "33lb",
+            "9lb",
+            "3kg",
+            "10lb",
+            "lata",
+            "500g"
+        ]
+    },
+    "2025-10-20": {
+        "exchange_rate": "475",
+        "products": [
+            "caja de pollo",
+            "picadillo mdm brasile\u00f1o",
+            "paquete de perrito",
+            "pechuga de pollo",
+            "molleja de pollo"
+        ],
+        "prices": [
+            "135000",
+            "10200",
+            "3800",
+            "5500",
+            "1500"
+        ],
+        "units": [
+            "15kg",
+            "13kg",
+            "3kg",
+            "2kg",
+            "1kg"
+        ]
+    },
+    "2025-10-25": {
+        "exchange_rate": "495",
+        "products": [
+            "pechuga de pollo",
+            "cerveza presidente"
+        ],
+        "prices": [
+            "4500",
+            "220"
+        ],
+        "units": [
+            "2kg",
+            "lata"
+        ]
+    },
+    "2025-11-03": {
+        "exchange_rate": "440",
+        "products": [
+            "paquete papel higienico",
+            "pasta dental",
+            "aceite",
+            "jabon de ba\u00f1o",
+            "toallitas humedas",
+            "detergente"
+        ],
+        "prices": [
+            "1000",
+            "600",
+            "1000",
+            "150",
+            "550",
+            "500"
+        ],
+        "units": [
+            "4 unidades",
+            "tubo",
+            "900ml",
+            "unidad",
+            "paquete",
+            "500g"
+        ]
+    },
+    "2025-11-17": {
+        "exchange_rate": "450",
+        "products": [
+            "paquete salchicha",
+            "chorizo articulado",
+            "jamon embuchado",
+            "jamon barra ahumado",
+            "pierna ahumada acaramelada",
+            "carnero pierna",
+            "carnero costilla",
+            "carnero lomo",
+            "cerdo deshuesado",
+            "bistec de cerdo",
+            "masa de cerdo",
+            "lomo entero",
+            "chuleta deshuesada",
+            "chuelta deshuesada",
+            "chuleta ahumada",
+            "higado de res"
+        ],
+        "prices": [
+            "3250",
+            "2750",
+            "7000",
+            "6000",
+            "3350",
+            "900",
+            "1800",
+            "1950",
+            "6200",
+            "3000",
+            "3000",
+            "5800",
+            "3000",
+            "5900",
+            "3200",
+            "1800"
+        ],
+        "units": [
+            "3kg",
+            "3lb",
+            "6lb",
+            "6lb",
+            "1kg",
+            "lb",
+            "kg",
+            "kg",
+            "kg",
+            "kg",
+            "kg",
+            "2kg",
+            "kg",
+            "2kg",
+            "1kg",
+            "1kg"
+        ]
     }
 }
