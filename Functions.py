@@ -15,12 +15,18 @@ def normalize_text(text):
     types = {
         "pasta dental":"pasta dental",
         "perrito":"salchicha",
+        'perritos':'salchicha',
         "perro":"salchicha",
+        'perros':'salchicha',
+        'perritos':'salchicha',
         "salchicha":"salchicha",
-        "cerveza":"cerveza",
-        "ron":"ron",
-        "vino":'vino',
-        "spaguettis":"spaguettis"
+        "spaguettis":"spaguettis",
+        'papel higienico':'papel higienico',
+        'macarrones':'macarron',
+        'macarron':'macarron',
+        'codito':'macarron',
+        'coditos':'macarron',
+        'detergente':'detergente'
     }
     for error,right in types.items(): 
         if error in text:
@@ -37,7 +43,7 @@ def normalize_units(text):
     unit = ""
     #excepciones para unidades
     #lata,tubo,paquete,pqt
-    units = ['lata','paquete','tubo','pqt','unidad','unidades','bolsa']
+    units = ['lata','paquete','tubo','pqt','unidad','unidades','bolsa','pote','pomo','botella']
     for exceptions in units:
         if exceptions in text:
             unit = "u"
@@ -100,8 +106,7 @@ def normalize_units(text):
     return (number,unit)
 
 def normalize_numbers(texto):
-    return int(texto)
-
+    return round(float(texto),2)
 
 def data_to_list():
     #convert data to a list of dictionaries
@@ -111,20 +116,54 @@ def data_to_list():
         for key,value in myp_info.items():
             if key == "products_info":
                 for index in range(len(value["Products"])):
+                    lat,lon = myp_info["geolocation"].split(',')
                     dicti = {
                         "mipyme_name":normalize_text(name),
                         "date":myp_info["date"],
                         "time":myp_info["time"],
-                        "geolocation":myp_info["geolocation"],
+                        'lat':float(lat.strip()),
+                        'lon':float(lon.strip()),
                         "township":normalize_text(myp_info["township"]),
                         "product":normalize_text(value["Products"][index]),
-                        "price":normalize_numbers(value["Prices"][index]),
+                        "price":normalize_numbers((value["Prices"][index])),
                         "units":normalize_units(value["Units"][index]),
                         "exchange_rate":normalize_numbers(myp_info["exchange_rate"])
                     }
                     data_list.append(dicti)
     return data_list
 
+def group_products(cath):
+    #group all producst by category
+    all_data = data_to_list()
+    carnicos = [
+        'pollo','cerdo','res','picadillo','salchicha',
+        'perrito','jamon', 'lomo','chorizo','hamburguesa', 
+        'pescado','atun','sierra','bonito','salmon', 
+        'mortadella','bistec','higado','molleja','albondiga', 
+        'croqueta','fiambre','span','masa','carne','salchichon'
+    ]
+    alcohol = ['cerveza','vino','ron','vodka','whisky','shaka']
+    higiene = ['detergente','papel','toallitas humedas',
+               'jabon','champu','desodorante',
+               ]
+    viveres = ['arroz','azucar','aceite','miel','harina','frijol',
+               'chicharo','alubia','judia','mayonesa','mostaza',
+               'pasta','ketchup','macarron','cafe','leche','pan',
+               'fideo','vinagre','sal','pure']
+    bebidas = ['malta','refresco','jugo','pepsi','cola']
+    types = {
+        'carnicos':carnicos,
+        'alcohol':alcohol,
+        'higiene':higiene,
+        'bebidas':bebidas,
+        'viveres':viveres
+    }
+    grouped = []
+    for data in all_data:
+        if data['product'] in types[cath]:
+            grouped.append(data)
+    return grouped
+   
 
 def filter_by(category, value):
     #to isolate data 
@@ -164,6 +203,7 @@ def filter_by(category, value):
 def calculate_statistics(value_list):
     #calculate statitics 
     len_list = len(value_list)
+    if len_list == 0:return -1
     value_list = sorted(value_list)
     mean = sum(value_list)/len_list
     median = sum(value_list[len_list//2-1:len_list//2])/2 if len_list % 2 == 0 else value_list[len_list//2]
