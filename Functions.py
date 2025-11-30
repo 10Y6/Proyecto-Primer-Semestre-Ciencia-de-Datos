@@ -1,6 +1,7 @@
 import os 
 import json
 
+#data_in_situ functions
 def load_json():
     file_path = os.path.dirname(os.path.abspath(__file__))
     cache_path = os.path.join(file_path,"data_in_situ/db_in_situ.json")
@@ -108,7 +109,7 @@ def normalize_units(text):
 def normalize_numbers(texto):
     return round(float(texto),2)
 
-def data_to_list():
+def data_in_situ():
     #convert data to a list of dictionaries
     data = load_json()
     data_list = []
@@ -118,23 +119,23 @@ def data_to_list():
                 for index in range(len(value["Products"])):
                     lat,lon = myp_info["geolocation"].split(',')
                     dicti = {
-                        "mipyme_name":normalize_text(name),
+                        #"mipyme_name":normalize_text(name),
                         "date":myp_info["date"],
-                        "time":myp_info["time"],
-                        'lat':float(lat.strip()),
-                        'lon':float(lon.strip()),
-                        "township":normalize_text(myp_info["township"]),
+                        #"time":myp_info["time"],
+                        #'lat':float(lat.strip()),
+                        #'lon':float(lon.strip()),
+                        #"township":normalize_text(myp_info["township"]),
                         "product":normalize_text(value["Products"][index]),
                         "price":normalize_numbers((value["Prices"][index])),
                         "units":normalize_units(value["Units"][index]),
-                        "exchange_rate":normalize_numbers(myp_info["exchange_rate"])
+                        #"exchange_rate":normalize_numbers(myp_info["exchange_rate"])
                     }
                     data_list.append(dicti)
     return data_list
 
-def group_products(cath):
+def group_products(cath,data):
     #group all producst by category
-    all_data = data_to_list()
+    all_data = data_in_situ()
     carnicos = [
         'pollo','cerdo','res','picadillo','salchicha',
         'perrito','jamon', 'lomo','chorizo','hamburguesa', 
@@ -170,7 +171,7 @@ def filter_by(category, value):
     #all data of a mipyme
     #all prices of a product
     #all products in a township
-    data_list = data_to_list()
+    data_list = data_in_situ()
     filtred_list = []
     if category == "product":
         for key in data_list:
@@ -221,7 +222,84 @@ def calculate_statistics(value_list):
         "variance":round(variance,2),
         "standard_deviation":round(standard_deviation,2),
     }
+#
+
+#onei functions
+
+def load_json_onei(cath):
+    file_route = os.path.dirname(os.path.abspath(__file__))
+    min_max_route = os.path.join(file_route,'data_onei/min_max_prices.json')
+    salary_route = os.path.join(file_route,'data_onei/salary_median.json')
+    with open(salary_route,'r') as file:
+       salary = file.read()
+       salary = json.loads(salary)
     
+    with open(min_max_route,'r') as file:
+        min_max = file.read()
+        min_max = json.loads(min_max)
+    
+    if cath =='min_max':return min_max
+    return salary
+
+def data_onei():
+    #data from de onei to a standard list
+    data = load_json_onei('min_max')
+    list_ = []
+    
+    for date,products in data.items():
+        dict_ = {}
+        for product,info in products.items():
+            if not info['min'] or not info['max']:continue
+            dict_ = {
+                'date':date,
+                'product':product,
+                'price':(info['min'] + info['max'])/2,
+                'unit':normalize_units(info['unit'])
+            }
+            list_.append(dict_)
+    
+    return list_
+
+#online functions
+
+def load_online():
+    file_route = os.path.dirname(os.path.abspath(__file__))
+    online_route = os.path.join(file_route,'data_online/db_online.json')
+    
+    with open(online_route,'r') as file:
+        data = file.read()
+        data = json.loads(data)
+    return data
+
+def data_online():
+    data = load_online()
+    list_ = []
+    for date,info in data.items():
+        dict_ = {}
+        for index in range(len(info['units'])):
+            dict_ = {
+                'date':date,
+                'product':normalize_text(info['products'][index]),
+                'price':normalize_numbers(info['prices'][index]),
+                'unit':normalize_units(info['units'][index])
+            }
+            list_.append(dict_)
+    return list_
+
+def load_exch_rate():
+    file_route = os.path.dirname(os.path.abspath(__file__))
+    exch_route = os.path.join(file_route,'db_exch_rate.json')
+    with open(exch_route,'r') as file:
+        data = file.read()
+        print(data)
+        data = json.loads(data)
+    list_ = []
+    for i,j in data.items():
+        list_.append({'date':i,'rate':j})
+    return list_
+
+#
+
 #
 #debug functions
 #
@@ -255,7 +333,7 @@ def get_keys():
 
 def print_data_list():
     #for visualize all data in data list
-    for i in data_to_list():
+    for i in data_in_situ():
         for key,value in i.items():
             print(key,": ",end="")
             print(value)

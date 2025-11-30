@@ -17,7 +17,7 @@ with open(raw_route,'w') as file:
 with open(db_exch_route,'w') as file:
     dict_ = {}
     for i in response:
-        dict_[f"{i['_id']}"] = i['last']['value']
+        dict_[f"{i['_id']}"] = i['median']
     
     aux = []
     for i in dict_.items():

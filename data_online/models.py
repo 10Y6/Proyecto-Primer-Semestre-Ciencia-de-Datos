@@ -17,7 +17,7 @@ def create_data(date):
     product_info = gp()
     ans[data["date"]] = {
         #"time": data["time"],
-        "exchange_rate": data["exchange_rate"],
+        #"exchange_rate": data["exchange_rate"],
         "products":product_info["products"],
         "prices":product_info["prices"],
         "units":product_info["units"]
