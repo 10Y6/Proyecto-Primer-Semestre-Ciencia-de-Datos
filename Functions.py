@@ -27,8 +27,11 @@ def normalize_text(text):
         'macarron':'macarron',
         'codito':'macarron',
         'coditos':'macarron',
-        'detergente':'detergente'
+        'detergente':'detergente',
+        "pescado":'pescado'
     }
+    trans = str.maketrans('áéíóú','aeiou')
+    text = text.translate(trans)
     for error,right in types.items(): 
         if error in text:
             text = right
@@ -44,7 +47,8 @@ def normalize_units(text):
     unit = ""
     #excepciones para unidades
     #lata,tubo,paquete,pqt
-    units = ['lata','paquete','tubo','pqt','unidad','unidades','bolsa','pote','pomo','botella']
+    units = ['lata','paquete','huevos','huevo','tubo','pqt'
+             ,'unidad','unidades','bolsa','pote','pomo','botella']
     for exceptions in units:
         if exceptions in text:
             unit = "u"
@@ -109,6 +113,11 @@ def normalize_units(text):
 def normalize_numbers(texto):
     return round(float(texto),2)
 
+def merge_online_situ(data_online,data_in_situ):
+    data = data_in_situ.copy()
+    data.extend(data_online)
+    return data
+
 def data_in_situ():
     #convert data to a list of dictionaries
     data = load_json()
@@ -127,15 +136,15 @@ def data_in_situ():
                         #"township":normalize_text(myp_info["township"]),
                         "product":normalize_text(value["Products"][index]),
                         "price":normalize_numbers((value["Prices"][index])),
-                        "units":normalize_units(value["Units"][index]),
+                        "unit":normalize_units(value["Units"][index]),
                         #"exchange_rate":normalize_numbers(myp_info["exchange_rate"])
                     }
                     data_list.append(dicti)
     return data_list
 
-def group_products(cath,data):
+def group_products(cath,datas):
     #group all producst by category
-    all_data = data_in_situ()
+    all_data = datas
     carnicos = [
         'pollo','cerdo','res','picadillo','salchicha',
         'perrito','jamon', 'lomo','chorizo','hamburguesa', 
@@ -161,8 +170,9 @@ def group_products(cath,data):
     }
     grouped = []
     for data in all_data:
-        if data['product'] in types[cath]:
-            grouped.append(data)
+        for target in types[cath]:
+            if target in data['product']:
+                grouped.append(data)
     return grouped
    
 
@@ -199,7 +209,6 @@ def filter_by(category, value):
                 }
                 filtred_list.append(dicti)
     return filtred_list
-                
                 
 def calculate_statistics(value_list):
     #calculate statitics 
@@ -252,10 +261,12 @@ def data_onei():
             if not info['min'] or not info['max']:continue
             dict_ = {
                 'date':date,
-                'product':product,
+                'product':normalize_text(product),
                 'price':(info['min'] + info['max'])/2,
                 'unit':normalize_units(info['unit'])
             }
+            if 'aceite' in dict_['product']:
+                dict_['unit'] = (dict_['unit'][0],'L')
             list_.append(dict_)
     
     return list_
@@ -276,12 +287,12 @@ def data_online():
     list_ = []
     for date,info in data.items():
         dict_ = {}
-        for index in range(len(info['units'])):
+        for index in range(len(info['unit'])):
             dict_ = {
                 'date':date,
                 'product':normalize_text(info['products'][index]),
                 'price':normalize_numbers(info['prices'][index]),
-                'unit':normalize_units(info['units'][index])
+                'unit':normalize_units(info['unit'][index])
             }
             list_.append(dict_)
     return list_
@@ -291,7 +302,6 @@ def load_exch_rate():
     exch_route = os.path.join(file_route,'db_exch_rate.json')
     with open(exch_route,'r') as file:
         data = file.read()
-        print(data)
         data = json.loads(data)
     list_ = []
     for i,j in data.items():

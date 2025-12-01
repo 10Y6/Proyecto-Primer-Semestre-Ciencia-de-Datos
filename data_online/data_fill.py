@@ -43,5 +43,5 @@ def get_product():
     return {
         "products":products,
         "prices":prices,
-        "units":units
+        "unit":units
     }
