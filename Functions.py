@@ -74,20 +74,20 @@ def normalize_units(text):
         text = text.strip('lbs')
         text = text.strip('lb')
         try:
-            number = float(text) * 0.453
+            number = round(float(text) * 0.453,2)
         except:
             number = 0.453
     elif 'g' in text and not 'kg' in text:
         unit = "kg"
         text = text.strip()
         text = text.strip('g')
-        number = float(text) * 0.001
+        number = round(float(text) * 0.001,2)
     elif 'ml' in text:
         unit = "L"
         text = text.strip()
         text = text.strip('ml')
         try:
-            number = float(text) * 0.001
+            number = round(float(text) * 0.001,2)
         except:
             number = 1
     elif 'kg' in text:
@@ -95,7 +95,7 @@ def normalize_units(text):
         text = text.strip()
         text = text.strip('kg')
         try:
-            number = float(text)
+            number = round(float(text),2)
         except:
             number = 1
     elif 'l' in text or 'L' in text:
@@ -104,7 +104,7 @@ def normalize_units(text):
         text = text.strip('l')
         text = text.strip('L')
         try:
-            number = float(text)
+            number = round(float(text),2)
         except:
             number = 1
     
@@ -113,9 +113,9 @@ def normalize_units(text):
 def normalize_numbers(texto):
     return round(float(texto),2)
 
-def merge_online_situ(data_online,data_in_situ):
-    data = data_in_situ.copy()
-    data.extend(data_online)
+def merge_data(data_1,data_2):
+    data = data_1.copy()
+    data.extend(data_2)
     return data
 
 def data_in_situ():
@@ -172,9 +172,27 @@ def group_products(cath,datas):
     for data in all_data:
         for target in types[cath]:
             if target in data['product']:
+                if 'pelly' in data['product'] and cath=='carnicos':continue
+                if 'refresco' in data['product'] and cath == 'carnicos':continue
+                if 'alubias' in data['product'] and cath == 'carnicos':continue
+                if 'ron' in data['product'] and cath == 'carnicos':continue
+                if 'cerveza' in data['product'] and cath == 'carnicos':continue
+                if 'cerveza' in data['product'] and cath == 'carnicos':continue
+                if 'salchi' in data['product'] and cath == 'viveres':continue
+                if 'salmon' in data['product'] and cath == 'viveres':continue
+                
+                
                 grouped.append(data)
     return grouped
    
+def group_and_norm(data,cath):
+    own_data = group_products(cath,data)
+    own_data = [{'date':x['date'],
+                          'product':x['product'],
+                          'price':round(x['price']/x['unit'][0],2),
+                          'unit':(1,x['unit'][1])} 
+                            for x in own_data]
+    return own_data
 
 def filter_by(category, value):
     #to isolate data 
@@ -218,7 +236,7 @@ def calculate_statistics(value_list):
     mean = sum(value_list)/len_list
     median = sum(value_list[len_list//2-1:len_list//2])/2 if len_list % 2 == 0 else value_list[len_list//2]
     range_ = abs(min(value_list)-max(value_list))
-    variance = sum([(x-mean)**2 for x in value_list])/(len_list-1)
+    variance = sum([(x-mean)**2 for x in value_list])/(len_list)
     standard_deviation = variance**(1/2)
     #mode for fix, improve in a future
     mode = [value_list.count(x) for x in value_list]
@@ -303,10 +321,10 @@ def load_exch_rate():
     with open(exch_route,'r') as file:
         data = file.read()
         data = json.loads(data)
-    list_ = []
-    for i,j in data.items():
-        list_.append({'date':i,'rate':j})
-    return list_
+    #list_ = []
+    #for i,j in data.items():
+    #    list_.append({'date':i,'rate':j})
+    return data
 
 #
 
