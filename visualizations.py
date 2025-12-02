@@ -1,23 +1,18 @@
 import plotly.express as px
 import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+
 import Functions as fnc
-import statistics
 from collections import defaultdict
 
-#loading all data
-data_in_situ = fnc.data_in_situ()
-data_online = fnc.data_online()
-data_onei = fnc.data_onei()
 data_exch_rate = fnc.load_exch_rate()
-salary_median = fnc.load_json_onei('salary')
-#
-def sort_datas():
-    data_onei.sort(key=lambda x:x['date'])
-    
-sort_datas()
 
 #El 'Encogimiento' del Salario: Capacidad de Compra (2024 vs. 2025)
 def buy_capacity(sector):
+    
+    salary_median = fnc.load_json_onei('salary')
+    data_onei = sorted(fnc.data_onei(),key=lambda x:x['date'])
+
     canasta = {
         'arroz':(5.6,'kg'),
         'azucar':(2.5,'kg'),
@@ -57,7 +52,7 @@ def buy_capacity(sector):
                     valid_prices_per_unit.append(price_per_unit)
             
             if valid_prices_per_unit:
-                avg_price = statistics.mean(valid_prices_per_unit)
+                avg_price = fnc.calculate_statistics(valid_prices_per_unit)['mean']
                 daily_cost += avg_price * qty_needed
         
         if daily_cost > 0:
@@ -140,4 +135,93 @@ def buy_capacity(sector):
     )
     
     fig.show()
- 
+
+#la sombra del dolar correlacion entre el precio de un producto y el dolar
+#30-10 al 25-11
+def corretalion_dollar_product(cath):
+    
+    start_date = '2025-10-30'
+    end_date = '2025-11-25'
+        
+    data_in_situ = fnc.data_in_situ()
+    data_online = fnc.data_online()
+    
+    own_data = fnc.merge_data(data_in_situ,data_online)
+    own_data.sort(key=lambda x:x['date'])
+    
+    own_data_grouped = fnc.group_and_norm(own_data,cath),
+    
+    for products_list in own_data_grouped:
+        #categoria, todos los productos de la categoria
+        daily_prices = defaultdict(list)
+        
+        for item in products_list:
+            date = item['date']
+            price = item['price']
+            if start_date <= date <= end_date and price > 0:
+                daily_prices[date].append(price)
+        
+        product_avg = defaultdict(list)
+        for date,price_list in daily_prices.items():
+            product_avg[date] = round(sum(price_list) / len(price_list),2)
+        
+        common_dates = sorted(list(product_avg.keys() & data_exch_rate.keys()))
+        
+        prod_prices = [product_avg[date_] for date_ in common_dates]
+        usd_rate = [float(data_exch_rate[date_]) for date_ in common_dates]
+        
+    fig = make_subplots(specs=[[{'secondary_y':True}]])
+    
+    if cath == 'carnicos':
+        fig.add_trace(
+            go.Scatter(
+                x=common_dates,
+                y=prod_prices,
+                name=f'Precio de {cath}',
+                line=dict(color='#FF5252',width=3,dash='dot')
+            ),
+            secondary_y=False
+        )
+    elif cath == 'higiene':
+        fig.add_trace(
+            go.Scatter(
+                x=common_dates,
+                y=prod_prices,
+                name=f'Precio de {cath}',
+                line=dict(color='#00BFFF',width=3,dash='dot')
+            ),
+            secondary_y=False
+        )
+    else:
+        fig.add_trace(
+            go.Scatter(
+                x=common_dates,
+                y=prod_prices,
+                name=f'Precio de {cath}',
+                line=dict(color='#FFD700',width=3,dash='dot')
+            ),
+            secondary_y=False
+        )
+    
+    fig.add_trace(
+        go.Scatter(
+            x=common_dates,
+            y=usd_rate,
+            name='Valor del Dolar',
+            line=dict(color='#2ECC71',width=3,dash='dot'),
+        ),
+        secondary_y=True
+    )
+    
+    fig.update_layout(
+        title=f'Correlación: {cath.capitalize()} vs Dolar',
+        template='plotly_dark',
+        font=dict(family='Roboto',size=14),
+        hovermode='x unified',
+        legend=dict(orientation='h',y=1.1)
+    )
+    
+    fig.update_yaxes(title_text='Precio Promedio CUP',secondary_y=False)
+    fig.update_yaxes(title_text='Tasa USD',secondary_y=True)
+
+    fig.show()
