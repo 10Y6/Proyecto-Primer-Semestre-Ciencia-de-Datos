@@ -28,7 +28,10 @@ def normalize_text(text):
         'codito':'macarron',
         'coditos':'macarron',
         'detergente':'detergente',
-        "pescado":'pescado'
+        "pescado":'pescado',
+        'huevos':'huevos',
+        'huevo':'huevos',
+        'aceite':'aceite'
     }
     trans = str.maketrans('áéíóú','aeiou')
     text = text.translate(trans)
@@ -47,8 +50,9 @@ def normalize_units(text):
     unit = ""
     #excepciones para unidades
     #lata,tubo,paquete,pqt
-    units = ['lata','paquete','huevos','huevo','tubo','pqt'
-             ,'unidad','unidades','bolsa','pote','pomo','botella']
+    units = ['lata','paquete','huevos','huevo','tubo','pqt','caja',
+             'cajita','cabeza','unidad','unidades','bolsa','pote',
+             'pomo','botella','barra']
     for exceptions in units:
         if exceptions in text:
             unit = "u"
@@ -176,7 +180,6 @@ def group_products(cath,datas):
                 if 'refresco' in data['product'] and cath == 'carnicos':continue
                 if 'alubias' in data['product'] and cath == 'carnicos':continue
                 if 'ron' in data['product'] and cath == 'carnicos':continue
-                if 'cerveza' in data['product'] and cath == 'carnicos':continue
                 if 'cerveza' in data['product'] and cath == 'carnicos':continue
                 if 'salchi' in data['product'] and cath == 'viveres':continue
                 if 'salmon' in data['product'] and cath == 'viveres':continue

@@ -225,3 +225,184 @@ def corretalion_dollar_product(cath):
     fig.update_yaxes(title_text='Tasa USD',secondary_y=True)
 
     fig.show()
+
+
+#evolucion del precio con respecto al inicial 2024-01 en porcentaje
+def total_price_evolution():
+    #cargar datos y unirlos todos en own_data
+    data_onei = fnc.data_onei()
+    own_data_ = fnc.merge_data(fnc.data_online(),fnc.data_in_situ())
+    #sacar solo ańo con mes para datos de noviembre ya que no me interesan los dias
+    #filtrar mis datos de octubre
+    own_data = [dict(date=x['date'][0:7],product=x['product'],
+                     price=x['price'],unit=(x['unit'][0],x['unit'][1]))
+                for x in own_data_ if '2025-10' not in x['date']]
+    #mergear los datos oficiales con los mios
+    own_data = fnc.merge_data(data_onei,own_data)
+    
+    #normalizar precio por unidad poner los datos a la misma escala
+    own_data = [{'date':x['date'],
+                    'product':x['product'],
+                    'price':round(x['price']/x['unit'][0],2),
+                    'unit':(1,x['unit'][1])} 
+                    for x in own_data]
+    #separar los productos en listas individuales
+    products = {
+            'aceite': [x for x in own_data if 'aceite' in x['product']],
+            'arroz': [x for x in own_data if 'arroz' in x['product']],
+            'malta': [x for x in own_data if 'malta' in x['product']],
+            'huevos': [x for x in own_data if 'huevos' in x['product']],
+            'cerveza': [x for x in own_data if 'cerveza' in x['product']],
+            }
+    
+    help_unit = {
+        'aceite':(1,'L'),
+        'arroz':(1,'kg'),
+        'malta':(1,'u'),
+        'huevos':(1,'u'),
+        'cerveza':(1,'u')
+    }
+    #calcular el promedio desde 2024-2025 
+    for product,item_list in products.items():
+        prod_list= []
+        for item in item_list:
+            avg_prod = 0.0
+            num_prod = 0
+            if product == 'cerveza' or product == 'malta':
+                #parche para cambiar la magnitud de cerveza a unidad
+                item['unit'] = (item['unit'][0],'u')
+                
+            if item['date'] == '2025-11':
+            #aqui calcula especificamente el de noviembre 2025
+            #ya que son datos recoleclectados por mi y hay
+            #varios datos de un mismo producto en una misma fecha
+            #ojo no datos duplicados
+                avg_prod += item['price']
+                num_prod += 1
+            else:
+                prod_list.append(item)
+                
+        prod_list.append(dict(date='2025-11',product=product
+            ,price=round(avg_prod/num_prod,2),unit=help_unit[product]))
+        products[product] = prod_list
+    
+    #ordenar las listas
+    for i,j in products.items():
+        products[i] = sorted(j,key=lambda x:x['date'])
+            
+    #crear el dataframe calculando el indice
+    #cambiando la fecha de ingles a espańol
+    df = []
+    month_es = {
+        '01': 'Ene', '02': 'Feb', '03': 'Mar', '04': 'Abr',
+        '05': 'May', '06': 'Jun', '07': 'Jul', '08': 'Ago',
+        '09': 'Sep', '10': 'Oct', '11': 'Nov', '12': 'Dic'
+    }
+    for product,items in products.items():
+        base_price = items[0]['price']
+        for item in items:
+            #calcular el indice = precio actual/precio base * 100
+            #cogiendo enero como base
+            index = round((item['price']/base_price)*100,2)
+            #cambio de formato de la fecha ingles a espańol
+            year,month = item['date'].split('-')
+            df.append(dict(
+                date=f'{month_es[month]} {year}',
+                product=item['product'],
+                index=index,
+                price=item['price']
+            ))
+            
+    #plotear
+    fig = px.line(
+        df,x='date',y='index',
+        color='product',
+        markers=True,#
+        custom_data=['price'],#guardar precio para ponerlo en el hover
+        color_discrete_map={
+            #color especifico a cada linea(identificador de la linea = producto)
+            'aceite': "#E7D10D",     
+            'arroz': "#EEFAF9",       
+            'malta': "#DB8E1A",      
+            'cerveza': "#DA1A1A",  
+            'huevo': "#1B18D4" 
+        },
+        labels={
+            'date':'Mes y Año',
+            'index':'Índice (Base 100)',
+            'product':'Producto',
+            'price':'Precio (CUP)'
+        }
+    )
+    
+    fig.add_hline(#linea del medio como referencia
+        y=100,
+        line_dash="dash",
+        line_color="rgba(255, 215, 0, 0.6)",
+        annotation_text="",
+        annotation_position="right",
+        annotation=dict(
+            font=dict(size=12, color="#FFD700")
+        )
+    )
+    
+    fig.add_trace(
+        #agregar la linea a la leyenda sin mostrar otras cosas
+        go.Scatter(
+            x=[None],  
+            y=[None],
+            mode='lines',
+            name='Precio Base (Ene 2024)',
+            line=dict(color='#FFD700', width=2, dash='dash'),
+            showlegend=True,
+            hoverinfo='skip'
+        )
+    )
+    
+    fig.update_traces(
+        #configurar el hover, los datos que
+        #muestra la ventana al pasar el clic sobre la linea
+        #estilizar con  html
+        hovertemplate="<b>%{fullData.name}</b><br>" +#nombre de la linea
+                     "Mes: %{x}<br>" + 
+                     "Índice: %{y:.1f}%<br>" +
+                     "Precio: $%{customdata[0]:.2f}" #primer columna de custom_data definido arriba(primer precio)
+                     "<extra></extra>"  #quitar la caja por defecto de plotly
+    )
+    
+    fig.update_layout(
+        title='Evolución de Precios: 2024-2025 (Índice Base 100)',
+        template='plotly_dark',
+        font=dict(family='Roboto', size=14),
+        hovermode='x unified',#al pasar el mouse mostrar el valor de todos los productos
+        hoverdistance=100, 
+        legend=dict(
+            orientation='h',
+            yanchor='bottom',
+            xanchor='center',
+            x=0.5,
+            y=1.02,
+            title=None,
+            itemclick='toggleothers', #ocultar las otras lineas cuando cliqueo una
+            itemdoubleclick='toggle' 
+        ),
+        xaxis=dict(
+            title='Mes y Año',
+            type='category',
+            nticks=12,
+            showspikes=True,
+            spikemode='across',
+            spikethickness=2,
+            spikecolor="#FBFF00",
+            spikedash='dot'
+        ), 
+        yaxis=dict(
+            title='Índice de Precio (Base 100)',
+            gridcolor='rgba(255,255,255,0.1)',
+            range=[0, max([x['index'] for x in df]) * 1.1],
+            dtick=20
+        )
+    )
+    
+    fig.show()
+        

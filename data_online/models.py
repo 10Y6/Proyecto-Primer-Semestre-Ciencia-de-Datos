@@ -20,7 +20,7 @@ def create_data(date):
         #"exchange_rate": data["exchange_rate"],
         "products":product_info["products"],
         "prices":product_info["prices"],
-        "units":product_info["units"]
+        "unit":product_info["unit"]
     }
     return ans
     
@@ -35,7 +35,7 @@ def add_data(new_data):
     if new_data_key in data.keys():
         data[new_data_key]["products"].extend(new_data[new_data_key]["products"])
         data[new_data_key]["prices"].extend(new_data[new_data_key]["prices"])
-        data[new_data_key]["units"].extend(new_data[new_data_key]["units"])
+        data[new_data_key]["unit"].extend(new_data[new_data_key]["unit"])
     else:
         data.update(new_data)
 

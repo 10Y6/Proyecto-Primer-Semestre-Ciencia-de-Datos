@@ -2,15 +2,81 @@
     "2025-11-21": {
         "products": [
             "aceite",
-            "paquete muslo de pollo"
+            "paquete muslo de pollo",
+            "picadillo mdm",
+            "picadillo americano",
+            "pure de tomate",
+            "paquete de pollo",
+            "whisky",
+            "azucar",
+            "harina",
+            "frijol negro",
+            "chuletas de cerdo",
+            "chuletas de pollo",
+            "nasa de cerdo",
+            "nuggets de pollo",
+            "bistec de res",
+            "boliche de res",
+            "chuletas de cerdo ahumada",
+            "frijol colorado",
+            "sal",
+            "mayonesa",
+            "mayonesa",
+            "cerveza pilsener",
+            "higado de pollo",
+            "pierna de cerdo"
         ],
         "prices": [
             "1300",
-            "3800"
+            "3800",
+            "9000",
+            "9900",
+            "700",
+            "13950",
+            "1100",
+            "300",
+            "220",
+            "390",
+            "3600",
+            "6900",
+            "1900",
+            "1900",
+            "2500",
+            "4200",
+            "3700",
+            "390",
+            "85",
+            "1800",
+            "2200",
+            "185",
+            "670",
+            "2050"
         ],
         "unit": [
             "1L",
-            "10lb"
+            "10lb",
+            "15kg",
+            "40lb",
+            "500g",
+            "40lb",
+            "botella",
+            "lb",
+            "lb",
+            "lb",
+            "2lb",
+            "4lb",
+            "lb",
+            "lb",
+            "lb",
+            "lb",
+            "2lb",
+            "lb",
+            "lb",
+            "930g",
+            "1.5kg",
+            "lata",
+            "kg",
+            "kg"
         ]
     },
     "2025-10-30": {
@@ -29,13 +95,27 @@
             "pasta dental",
             "detergente",
             "detergente eco9",
-            "jabon de baño",
+            "jabon de ba\u00f1o",
             "jabon de lavar",
             "champu",
             "pasta dental royal fresh",
             "leche condensada",
             "pasta tomate",
-            "jabon de baño"
+            "jabon de ba\u00f1o",
+            "caja de pollo",
+            "chuleta de cerdo",
+            "paquete de chuletas de cerdo",
+            "masa de cerdo",
+            "lomo ahumado lazqueado",
+            "boliche de res",
+            "bistec de res",
+            "queso gouda lazqueado",
+            "salame",
+            "queso ric",
+            "lomo ahumado",
+            "muslo de pollo",
+            "pechuga de pollo",
+            "molleja de pollo"
         ],
         "prices": [
             "230",
@@ -47,7 +127,21 @@
             "365",
             "400",
             "285",
-            "105"
+            "105",
+            "11800",
+            "3600",
+            "6900",
+            "1900",
+            "3700",
+            "4200",
+            "2600",
+            "2500",
+            "530",
+            "900",
+            "1100",
+            "1800",
+            "3900",
+            "900"
         ],
         "unit": [
             "tubo",
@@ -59,7 +153,21 @@
             "tubo",
             "lata",
             "pote",
-            "unidad"
+            "unidad",
+            "33lb",
+            "2lb",
+            "4lb",
+            "lb",
+            "2lb",
+            "2lb",
+            "lb",
+            "lb",
+            "lb",
+            "kg",
+            "lb",
+            "2kg",
+            "2kg",
+            "kg"
         ]
     },
     "2025-11-22": {
@@ -86,7 +194,25 @@
             "carton de huevos",
             "spaguetti",
             "pasta de tomate",
-            "jabon de baño"
+            "jabon de ba\u00f1o",
+            "hamburguesas",
+            "cerdo deshuesado",
+            "masa de cerdo",
+            "bistec de cerdo",
+            "carnero",
+            "leche en polvo",
+            "jamon york",
+            "jamon viking",
+            "jamon embuchado ahumado",
+            "lomo ahumado deshuesado",
+            "jamon ahumado embuchado",
+            "lomo ahumado",
+            "lomo sellado al vacio",
+            "lomo crudo",
+            "jamon embuchado",
+            "jamon economico",
+            "jamon viki especial",
+            "chorizo vela"
         ],
         "prices": [
             "12500",
@@ -111,7 +237,25 @@
             "3000",
             "270",
             "360",
-            "110"
+            "110",
+            "400",
+            "6200",
+            "3000",
+            "3000",
+            "900",
+            "2500",
+            "7500",
+            "9000",
+            "7500",
+            "7500",
+            "7500",
+            "950",
+            "970",
+            "950",
+            "1000",
+            "550",
+            "900",
+            "750"
         ],
         "unit": [
             "33lb",
@@ -136,41 +280,185 @@
             "carton",
             "paquete",
             "400g",
-            "unidad"
+            "unidad",
+            "5 unidades",
+            "5lb",
+            "kg",
+            "kg",
+            "lb",
+            "kg",
+            "6.5lb",
+            "9lb",
+            "5lb",
+            "5lb",
+            "5lb",
+            "lb",
+            "lb",
+            "lb",
+            "lb",
+            "lb",
+            "lb",
+            "lb"
         ]
     },
     "2025-11-23": {
         "products": [
             "hamburguesas",
             "toallitas humedas",
-            "mayonesa"
+            "mayonesa",
+            "alitas de pollo",
+            "troceado de cerdo",
+            "lomo lasqueado",
+            "lomo ahumado",
+            "lomo de res",
+            "bistec de res",
+            "troceado de res",
+            "carne de res molida",
+            "bistec de higado de res",
+            "ruedas de bonito",
+            "picadillo mdm americano",
+            "boliche de res",
+            "lomo ahumado",
+            "lomo ahumado sellado al vacio",
+            "jamon especial",
+            "picadillo mdm",
+            "bistec de res",
+            "trozos de res",
+            "mortadella de pollo",
+            "jamonada picante de pollo",
+            "costilla de res",
+            "bistec de cerdo",
+            "caja de pollo",
+            "paque te pollo",
+            "sidra",
+            "leche en polvo",
+            "pierna ahumada",
+            "carne molida de res",
+            "cerdo deshuesado",
+            "bistec de cerdo",
+            "masa de cerdo",
+            "chuleta deshuesada",
+            "chuleta deshuesada",
+            "chuletas ahumadas",
+            "masa de cangrejo"
         ],
         "prices": [
             "450",
             "600",
-            "820"
+            "820",
+            "3800",
+            "3600",
+            "3500",
+            "3800",
+            "8700",
+            "4750",
+            "4500",
+            "2800",
+            "2600",
+            "3000",
+            "10000",
+            "7800",
+            "950",
+            "970",
+            "900",
+            "300",
+            "2450",
+            "3400",
+            "400",
+            "250",
+            "1200",
+            "3350",
+            "17500",
+            "4500",
+            "1350",
+            "2500",
+            "3350",
+            "2000",
+            "6200",
+            "3000",
+            "3000",
+            "3000",
+            "5900",
+            "3200",
+            "2500"
         ],
         "unit": [
             "5 unidades",
             "paquete",
-            "500g"
+            "500g",
+            "5lb",
+            "kg",
+            "kg",
+            "kg",
+            "2kg",
+            "kg",
+            "kg",
+            "kg",
+            "kg",
+            "kg",
+            "40lb",
+            "5lb",
+            "lb",
+            "lb",
+            "lb",
+            "lb",
+            "lb",
+            "lb",
+            "500g",
+            "300g",
+            "lb",
+            "2lb",
+            "40lb",
+            "10lb",
+            "boteela",
+            "kg",
+            "kg",
+            "kg",
+            "5lb",
+            "kg",
+            "kg",
+            "kg",
+            "2kg",
+            "kg",
+            "kg"
         ]
     },
     "2025-11-24": {
         "products": [
-            "jabon de baño"
+            "jabon de ba\u00f1o",
+            "pierna de cerdo deshuesada",
+            "picadillo mdm",
+            "higado de pollo",
+            "picadillo condimentado",
+            "masa de hamburguesa ahumada",
+            "mortadella",
+            "jamonada picante"
         ],
         "prices": [
-            "125"
+            "125",
+            "2000",
+            "8800",
+            "670",
+            "350",
+            "460",
+            "460",
+            "310"
         ],
         "unit": [
-            "unidad"
+            "unidad",
+            "2kg",
+            "15kg",
+            "1kg",
+            "400g",
+            "500g",
+            "450g",
+            "300g"
         ]
     },
     "2025-11-25": {
         "products": [
             "detergente",
-            "jabon de baño",
+            "jabon de ba\u00f1o",
             "harina",
             "pasta dental royal fresh",
             "papel sanitario paquete",
@@ -179,7 +467,7 @@
             "medallo de chorizo",
             "hamburguesas de pollo",
             "hamburguesas de cerdo",
-            "jabon de baño",
+            "jabon de ba\u00f1o",
             "jabon de lavar",
             "detergente",
             "pasta dental",
@@ -196,7 +484,25 @@
             "paquete salchicha",
             "lomo de cerdo",
             "cerveza la fria",
-            "spaguetti"
+            "spaguetti",
+            "pasta dental",
+            "jabon de ba\u0144o",
+            "harina de trigo",
+            "jabon de ba\u0144o",
+            "jabon de lavar",
+            "jabon de ba\u0144o",
+            "jabon de lavar",
+            "detergente",
+            "champu gilar",
+            "jamonada de pollo",
+            "miel pura",
+            "detergente",
+            "ca\u0144ada de res",
+            "chuleta deshuesada",
+            "caja de pollo",
+            "caja de pollo",
+            "carne molida de res",
+            "toallitas humedas"
         ],
         "prices": [
             "400",
@@ -226,7 +532,25 @@
             "3800",
             "12400",
             "200",
-            "235"
+            "235",
+            "800",
+            "220",
+            "2800",
+            "340",
+            "200",
+            "120",
+            "380",
+            "360",
+            "800",
+            "320",
+            "240",
+            "200",
+            "1600",
+            "3000",
+            "11500",
+            "14950",
+            "2000",
+            "600"
         ],
         "unit": [
             "500g",
@@ -256,13 +580,31 @@
             "3kg",
             "10lb",
             "lata",
-            "500g"
+            "500g",
+            "tubo",
+            "unidad",
+            "5kg",
+            "unidad",
+            "unidad",
+            "unidad",
+            "unidad",
+            "500g",
+            "pomo",
+            "300g",
+            "240ml",
+            "250g",
+            "lb",
+            "kg",
+            "30lb",
+            "40lb",
+            "kg",
+            "unidad"
         ]
     },
     "2025-10-20": {
         "products": [
             "caja de pollo",
-            "picadillo mdm brasileño",
+            "picadillo mdm brasile\u00f1o",
             "paquete salchicha",
             "pechuga de pollo",
             "molleja de pollo"
@@ -301,9 +643,22 @@
             "paquete papel higienico",
             "pasta dental",
             "aceite",
-            "jabon de baño",
+            "jabon de ba\u00f1o",
             "toallitas humedas",
-            "detergente"
+            "detergente",
+            "jabon de lavar",
+            "toallitas humedas",
+            "jabon de ba\u0144o",
+            "detergente",
+            "jabon de ba\u0144o",
+            "jabon de ba\u0144o",
+            "papel higienico",
+            "detergente",
+            "pasta dental",
+            "pasta de tomate",
+            "spaguettis",
+            "pasta dental",
+            "caja de pollo"
         ],
         "prices": [
             "1000",
@@ -311,7 +666,20 @@
             "1000",
             "150",
             "550",
-            "500"
+            "500",
+            "470",
+            "550",
+            "160",
+            "500",
+            "90",
+            "120",
+            "110",
+            "370",
+            "320",
+            "110",
+            "290",
+            "600",
+            "11900"
         ],
         "unit": [
             "4 unidades",
@@ -319,7 +687,20 @@
             "900ml",
             "unidad",
             "paquete",
-            "500g"
+            "500g",
+            "unidad",
+            "paquete",
+            "unidad",
+            "500g",
+            "unidad",
+            "unidad",
+            "unidad",
+            "500g",
+            "tubo",
+            "70g",
+            "500g",
+            "tubo",
+            "33lb"
         ]
     },
     "2025-11-17": {
@@ -376,6 +757,239 @@
             "2kg",
             "1kg",
             "1kg"
+        ]
+    },
+    "2025-10-23": {
+        "products": [
+            "detergente",
+            "arroz",
+            "codito"
+        ],
+        "prices": [
+            "500",
+            "550",
+            "280"
+        ],
+        "unit": [
+            "900g",
+            "kg",
+            "500g"
+        ]
+    },
+    "2025-10-27": {
+        "products": [
+            "arroz",
+            "higado de pollo",
+            "picadillo de pollo",
+            "papel higienico",
+            "jabon de lavar"
+        ],
+        "prices": [
+            "620",
+            "550",
+            "340",
+            "150",
+            "250"
+        ],
+        "unit": [
+            "kg",
+            "lb",
+            "lb",
+            "unidad",
+            "unidad"
+        ]
+    },
+    "2025-11-01": {
+        "products": [
+            "muslo de pollo",
+            "muslo de pollo"
+        ],
+        "prices": [
+            "4000",
+            "2000"
+        ],
+        "unit": [
+            "10lb",
+            "5lb"
+        ]
+    },
+    "2025-11-04": {
+        "products": [
+            "jabon de lavar"
+        ],
+        "prices": [
+            "200"
+        ],
+        "unit": [
+            "unidad"
+        ]
+    },
+    "2025-11-06": {
+        "products": [
+            "jabon de ba\u0144o",
+            "carne de res",
+            "muslo de pollo"
+        ],
+        "prices": [
+            "120",
+            "7500",
+            "11500"
+        ],
+        "unit": [
+            "unidad",
+            "5lb",
+            "12kg"
+        ]
+    },
+    "2025-11-08": {
+        "products": [
+            "salchicha",
+            "jamon embuchado",
+            "jamon ahumado prensado",
+            "chuleta ahumada",
+            "lomo ahumado",
+            "pierna ahumada acaramelada"
+        ],
+        "prices": [
+            "3250",
+            "7000",
+            "6000",
+            "3200",
+            "3200",
+            "3350"
+        ],
+        "unit": [
+            "3kg",
+            "6lb",
+            "6lb",
+            "kg",
+            "kg",
+            "kg"
+        ]
+    },
+    "2025-11-09": {
+        "products": [
+            "caja de pollo"
+        ],
+        "prices": [
+            "11900"
+        ],
+        "unit": [
+            "33lb"
+        ]
+    },
+    "2025-11-15": {
+        "products": [
+            "spaguettis",
+            "azucar",
+            "sal",
+            "malta karaq",
+            "jabon de ba\u0144o",
+            "pollo entero",
+            "picadillo",
+            "salchicha"
+        ],
+        "prices": [
+            "240",
+            "300",
+            "80",
+            "235",
+            "110",
+            "12790",
+            "11500",
+            "2580"
+        ],
+        "unit": [
+            "500g",
+            "lb",
+            "lb",
+            "lata",
+            "unidad",
+            "34lb",
+            "40lb",
+            "3kg"
+        ]
+    },
+    "2025-11-18": {
+        "products": [
+            "jabon de ba\u0144o",
+            "picadillo condimentado",
+            "masa de hamburguesa ahumada",
+            "mortadella",
+            "jamonada picante"
+        ],
+        "prices": [
+            "125",
+            "350",
+            "460",
+            "460",
+            "310"
+        ],
+        "unit": [
+            "unidad",
+            "400g",
+            "500g",
+            "450g",
+            "300g"
+        ]
+    },
+    "2025-11-19": {
+        "products": [
+            "spaguettis",
+            "pechuga de pollo deshuesada",
+            "mortadella criolla",
+            "picadillo de pollo",
+            "yogurt probiotico",
+            "malta kara",
+            "leche entera",
+            "leche evaporada",
+            "pasta de tomate",
+            "leche condensada",
+            "azucar",
+            "galletas salricas",
+            "galletas salricas ",
+            "arroz",
+            "frijol negro",
+            "garbanzo",
+            "aceite"
+        ],
+        "prices": [
+            "280",
+            "4300",
+            "1300",
+            "11400",
+            "2100",
+            "270",
+            "860",
+            "520",
+            "380",
+            "450",
+            "580",
+            "1000",
+            "150",
+            "600",
+            "800",
+            "750",
+            "1050"
+        ],
+        "unit": [
+            "500g",
+            "2kg",
+            "800g",
+            "40lb",
+            "1.5L",
+            "lata",
+            "L",
+            "350g",
+            "400g",
+            "lata",
+            "kg",
+            "7 unidades",
+            "unidad",
+            "kg",
+            "kg",
+            "500g",
+            "1L"
         ]
     }
 }
