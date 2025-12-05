@@ -405,4 +405,141 @@ def total_price_evolution():
     )
     
     fig.show()
-        
+
+def dispersion_analysis():
+    data_onei = fnc.data_onei()
+    own_data_ = fnc.merge_data(fnc.data_online(),fnc.data_in_situ())
+    #sacar solo ańo con mes para datos de noviembre ya que no me interesan los dias
+    #filtrar mis datos de octubre
+    own_data = [dict(date=x['date'][0:7],product=x['product'],
+                     price=x['price'],unit=(x['unit'][0],x['unit'][1]))
+                for x in own_data_ if '2025-10' not in x['date']]
+    #mergear los datos oficiales con los mios
+    own_data = fnc.merge_data(data_onei,own_data)
+    
+    #normalizar precio por unidad poner los datos a la misma escala
+    own_data = [{'date':x['date'],
+                    'product':x['product'],
+                    'price':round(x['price']/x['unit'][0],2),
+                    'unit':(1,x['unit'][1])} 
+                    for x in own_data]
+    #separar los productos en listas individuales
+    products = {
+            'aceite': [x for x in own_data if 'aceite' in x['product']],
+            'arroz': [x for x in own_data if 'arroz' in x['product']],
+            'malta': [x for x in own_data if 'malta' in x['product']],
+            'huevos': [x for x in own_data if 'huevos' in x['product']],
+            'cerveza': [x for x in own_data if 'cerveza' in x['product']],
+            }
+    
+    help_unit = {
+        'aceite':(1,'L'),
+        'arroz':(1,'kg'),
+        'malta':(1,'u'),
+        'huevos':(1,'u'),
+        'cerveza':(1,'u')
+    }
+    #calcular el promedio desde 2024-2025 
+    for product,item_list in products.items():
+        prod_list= []
+        for item in item_list:
+            avg_prod = 0.0
+            num_prod = 0
+            if product == 'cerveza' or product == 'malta':
+                #parche para cambiar la magnitud de cerveza a unidad
+                item['unit'] = (item['unit'][0],'u')
+                
+            if item['date'] == '2025-11':
+            #aqui calcula especificamente el de noviembre 2025
+            #ya que son datos recoleclectados por mi y hay
+            #varios datos de un mismo producto en una misma fecha
+            #ojo no datos duplicados
+                avg_prod += item['price']
+                num_prod += 1
+            else:
+                prod_list.append(item)
+                
+        prod_list.append(dict(date='2025-11',product=product
+            ,price=round(avg_prod/num_prod,2),unit=help_unit[product]))
+        products[product] = prod_list
+    
+    #ordenar las listas
+    for i,j in products.items():
+        products[i] = sorted(j,key=lambda x:x['date'])
+    #CV
+    median = defaultdict(list)
+    st_deviation = defaultdict(list)
+    for i,j in products.items():
+        st_deviation[i] = fnc.calculate_statistics([k['price'] for k in j])['standard_deviation']
+        median[i] = fnc.calculate_statistics([k['price'] for k in j])['median']
+
+    df = []
+    
+    for med,stdv in zip(median.items(),st_deviation.items()):
+        cv = (stdv[1]/med[1])*100
+        df.append(dict(
+            cv=round(cv,2),
+            product=med[0]
+            )
+        )
+    df = sorted(df,key=lambda x:x['product'])
+    products = [x['product'].capitalize() for x in df]
+    cv_list = [x['cv'] for x in df]
+    colors = []
+    for i in cv_list:
+        if i < 10:colors.append('#00C851')
+        elif i < 20:colors.append('#FFBB33')
+        else :colors.append('#ff4444')
+    
+    fig = go.Figure()
+    
+    fig.add_trace(
+        go.Bar(
+            x=cv_list,      
+            y=products,       
+            orientation='h', 
+            marker_color=colors,
+            text=[f'{val}%' for val in cv_list],
+            textposition='outside',
+            textfont=dict(size=14, color='white', family='Roboto'),
+            hovertemplate="<b>%{y}</b><br>Dispersión con respecto a la media: %{x}%<extra></extra>"
+        )
+    )
+    
+    fig.add_vline(x=10, line_width=1, line_dash="dash", line_color="#00C851")
+    fig.add_annotation(x=5, y=-0.15, text="BAJA DISPERSIÓN", showarrow=False, 
+                       xref="x", yref="paper", font=dict(color="#00C851", size=12))
+
+    fig.add_vline(x=20, line_width=1, line_dash="dash", line_color="#ff4444")
+    fig.add_annotation(x=15, y=-0.15, text="DISPERSIÓN MODERADA", showarrow=False, 
+                       xref="x", yref="paper", font=dict(color="#FFBB33", size=12))
+    
+    fig.add_annotation(x=25, y=-0.15, text="DISPERSIÓN ALTA", showarrow=False, 
+                       xref="x", yref="paper", font=dict(color="#ff4444", size=12))
+
+    fig.update_layout(
+        title=dict(
+            text='Análisis de dispersión de los precios',
+            y=0.95
+        ),
+        template='plotly_dark',
+        font=dict(family='Roboto', size=14),
+        margin=dict(l=20, r=50, t=80, b=90),
+        xaxis=dict(
+            title='Coeficiente de Variación (%)',
+            showgrid=True, 
+            gridcolor='rgba(255,255,255,0.1)',
+            zeroline=False,
+            range=[0, max(cv_list) * 1.2]
+        ),
+        yaxis=dict(
+            title='',
+            showgrid=False,
+            tickfont=dict(size=14)
+        ),
+        showlegend=False,
+        plot_bgcolor='rgba(0,0,0,0)',
+        paper_bgcolor='rgba(0,0,0,0)'
+    )
+
+    fig.show()
