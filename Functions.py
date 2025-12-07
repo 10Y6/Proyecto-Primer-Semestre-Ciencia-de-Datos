@@ -1,16 +1,60 @@
 import os 
 import json
 
-#data_in_situ functions
-def load_json():
-    file_path = os.path.dirname(os.path.abspath(__file__))
-    cache_path = os.path.join(file_path,"data_in_situ/db_in_situ.json")
-    
-    with open(cache_path,'r') as file:
-        data = file.read()
-        data = json.loads(data)
-    return dict(data)
+#group and normalize datas
 
+def group_products(cath,datas):
+    #group all producst by category
+    all_data = datas
+    carnicos = [
+        'pollo','cerdo','res','picadillo','salchicha',
+        'perrito','jamon', 'lomo','chorizo','hamburguesa', 
+        'pescado','atun','sierra','bonito','salmon', 
+        'mortadella','bistec','higado','molleja','albondiga', 
+        'croqueta','fiambre','span','masa','carne','salchichon'
+    ]
+    alcohol = ['cerveza','vino','ron','vodka','whisky','shaka']
+    higiene = ['detergente','papel','toallitas humedas',
+               'jabon','champu','desodorante',
+               ]
+    viveres = ['arroz','azucar','aceite','miel','harina','frijol',
+               'chicharo','alubia','judia','mayonesa','mostaza',
+               'pasta','ketchup','macarron','cafe','leche','pan',
+               'fideo','vinagre','sal','pure']
+    bebidas = ['malta','refresco','jugo','pepsi','cola']
+    types = {
+        'carnicos':carnicos,
+        'alcohol':alcohol,
+        'higiene':higiene,
+        'bebidas':bebidas,
+        'viveres':viveres
+    }
+    grouped = []
+    for data in all_data:
+        for target in types[cath]:
+            if target in data['product']:
+                if 'pelly' in data['product'] and cath=='carnicos':continue
+                if 'refresco' in data['product'] and cath == 'carnicos':continue
+                if 'alubias' in data['product'] and cath == 'carnicos':continue
+                if 'ron' in data['product'] and cath == 'carnicos':continue
+                if 'cerveza' in data['product'] and cath == 'carnicos':continue
+                if 'salchi' in data['product'] and cath == 'viveres':continue
+                if 'salmon' in data['product'] and cath == 'viveres':continue
+                
+                
+                grouped.append(data)
+    return grouped
+   
+def group_and_norm(data,cath):
+    own_data = group_products(cath,data)
+    own_data = [{'date':x['date'],
+                          'product':x['product'],
+                          'price':round(x['price']/x['unit'][0],2),
+                          'unit':(1,x['unit'][1])} 
+                            for x in own_data]
+    return own_data
+            
+    
 def normalize_text(text):
     text = text.lower().strip()
     types = {
@@ -50,6 +94,7 @@ def normalize_units(text):
     unit = ""
     #excepciones para unidades
     #lata,tubo,paquete,pqt
+        
     units = ['lata','paquete','huevos','huevo','tubo','pqt','caja',
              'cajita','cabeza','unidad','unidades','bolsa','pote',
              'pomo','botella','barra']
@@ -117,10 +162,40 @@ def normalize_units(text):
 def normalize_numbers(texto):
     return round(float(texto),2)
 
+#utilities functions
+
 def merge_data(data_1,data_2):
     data = data_1.copy()
     data.extend(data_2)
     return data
+
+def calculate_statistics(value_list):
+    #calculate statitics 
+    len_list = len(value_list)
+    if len_list == 0:return -1
+    value_list = sorted(value_list)
+    mean = sum(value_list)/len_list
+    median = sum(value_list[len_list//2-1:len_list//2])/2 if len_list % 2 == 0 else value_list[len_list//2]
+    range_ = abs(min(value_list)-max(value_list))
+    variance = sum([(x-mean)**2 for x in value_list])/(len_list)
+    standard_deviation = variance**(1/2)
+    return {
+        "mean":round(mean,2),
+        "median":round(median,2),
+        "range":round(range_,2),
+        "variance":round(variance,2),
+        "standard_deviation":round(standard_deviation,2),
+    }
+
+#data_in_situ functions
+def load_json():
+    file_path = os.path.dirname(os.path.abspath(__file__))
+    cache_path = os.path.join(file_path,"data_in_situ/db_in_situ.json")
+    
+    with open(cache_path,'r') as file:
+        data = file.read()
+        data = json.loads(data)
+    return dict(data)
 
 def data_in_situ():
     #convert data to a list of dictionaries
@@ -132,127 +207,13 @@ def data_in_situ():
                 for index in range(len(value["Products"])):
                     lat,lon = myp_info["geolocation"].split(',')
                     dicti = {
-                        #"mipyme_name":normalize_text(name),
                         "date":myp_info["date"],
-                        #"time":myp_info["time"],
-                        #'lat':float(lat.strip()),
-                        #'lon':float(lon.strip()),
-                        #"township":normalize_text(myp_info["township"]),
                         "product":normalize_text(value["Products"][index]),
                         "price":normalize_numbers((value["Prices"][index])),
                         "unit":normalize_units(value["Units"][index]),
-                        #"exchange_rate":normalize_numbers(myp_info["exchange_rate"])
                     }
                     data_list.append(dicti)
     return data_list
-
-def group_products(cath,datas):
-    #group all producst by category
-    all_data = datas
-    carnicos = [
-        'pollo','cerdo','res','picadillo','salchicha',
-        'perrito','jamon', 'lomo','chorizo','hamburguesa', 
-        'pescado','atun','sierra','bonito','salmon', 
-        'mortadella','bistec','higado','molleja','albondiga', 
-        'croqueta','fiambre','span','masa','carne','salchichon'
-    ]
-    alcohol = ['cerveza','vino','ron','vodka','whisky','shaka']
-    higiene = ['detergente','papel','toallitas humedas',
-               'jabon','champu','desodorante',
-               ]
-    viveres = ['arroz','azucar','aceite','miel','harina','frijol',
-               'chicharo','alubia','judia','mayonesa','mostaza',
-               'pasta','ketchup','macarron','cafe','leche','pan',
-               'fideo','vinagre','sal','pure']
-    bebidas = ['malta','refresco','jugo','pepsi','cola']
-    types = {
-        'carnicos':carnicos,
-        'alcohol':alcohol,
-        'higiene':higiene,
-        'bebidas':bebidas,
-        'viveres':viveres
-    }
-    grouped = []
-    for data in all_data:
-        for target in types[cath]:
-            if target in data['product']:
-                if 'pelly' in data['product'] and cath=='carnicos':continue
-                if 'refresco' in data['product'] and cath == 'carnicos':continue
-                if 'alubias' in data['product'] and cath == 'carnicos':continue
-                if 'ron' in data['product'] and cath == 'carnicos':continue
-                if 'cerveza' in data['product'] and cath == 'carnicos':continue
-                if 'salchi' in data['product'] and cath == 'viveres':continue
-                if 'salmon' in data['product'] and cath == 'viveres':continue
-                
-                
-                grouped.append(data)
-    return grouped
-   
-def group_and_norm(data,cath):
-    own_data = group_products(cath,data)
-    own_data = [{'date':x['date'],
-                          'product':x['product'],
-                          'price':round(x['price']/x['unit'][0],2),
-                          'unit':(1,x['unit'][1])} 
-                            for x in own_data]
-    return own_data
-
-def filter_by(category, value):
-    #to isolate data 
-    #all data of a mipyme
-    #all prices of a product
-    #all products in a township
-    data_list = data_in_situ()
-    filtred_list = []
-    if category == "product":
-        for key in data_list:
-            if value.lower() in key["product"].lower():
-                dicti = {
-                    "price":key["price"],
-                    "exchange_rate":key["exchange_rate"],
-                    "township":key["township"],
-                }
-                filtred_list.append(dicti)
-    elif category == "mipyme":
-        for mipymes in data_list:
-            if mipymes["mipyme_name"] == value:
-                product = mipymes["product"]
-                price = mipymes["price"]
-                filtred_list.append((product,float(price)))
-    elif category == "township":
-        for key in data_list:
-            if value.lower() == key["township"].lower():
-                dicti = {
-                    "product":key["product"],
-                    "price":key["price"],
-                    "exchange_rate":key["exchange_rate"],
-                    "mipyme_name":key["mipyme_name"]
-                }
-                filtred_list.append(dicti)
-    return filtred_list
-                
-def calculate_statistics(value_list):
-    #calculate statitics 
-    len_list = len(value_list)
-    if len_list == 0:return -1
-    value_list = sorted(value_list)
-    mean = sum(value_list)/len_list
-    median = sum(value_list[len_list//2-1:len_list//2])/2 if len_list % 2 == 0 else value_list[len_list//2]
-    range_ = abs(min(value_list)-max(value_list))
-    variance = sum([(x-mean)**2 for x in value_list])/(len_list)
-    standard_deviation = variance**(1/2)
-    #mode for fix, improve in a future
-    mode = [value_list.count(x) for x in value_list]
-    #mode
-    return {
-        "mean":round(mean,2),
-        "median":round(median,2),
-        "range":round(range_,2),
-        "mode":mode,
-        "variance":round(variance,2),
-        "standard_deviation":round(standard_deviation,2),
-    }
-#
 
 #onei functions
 
@@ -289,7 +250,6 @@ def data_onei():
             if 'aceite' in dict_['product']:
                 dict_['unit'] = (dict_['unit'][0],'L')
             list_.append(dict_)
-    
     return list_
 
 #online functions
@@ -324,47 +284,4 @@ def load_exch_rate():
     with open(exch_route,'r') as file:
         data = file.read()
         data = json.loads(data)
-    #list_ = []
-    #for i,j in data.items():
-    #    list_.append({'date':i,'rate':j})
     return data
-
-#
-
-#
-#debug functions
-#
-
-def print_data(mipyme_name):
-    #specific data from a mipyme
-    data = load_json()[mipyme_name]
-    for key, value in data.items():
-        if key == "products_info":
-            print("Products_info")
-            products = value["Products"]
-            prices = value["Prices"]
-            units = value["Units"]
-            spc_sep = max(len(x) for x in products)
-            spc_sep2 = max(len(x) for x in prices)
-            for index in range(len(value["Products"])):
-                print(products[index]," "*(spc_sep-len(products[index])),end="")
-                print(prices[index]," "*(spc_sep2-len(prices[index])),end="")
-                print(units[index])
-        else:
-            print(key,": ",sep="",end="")
-            print(value)
-
-def get_keys():
-    #to get the mypime names
-    json = load_json()
-    keys = []
-    for key in json.keys():
-        keys.append(key)
-    return keys
-
-def print_data_list():
-    #for visualize all data in data list
-    for i in data_in_situ():
-        for key,value in i.items():
-            print(key,": ",end="")
-            print(value)

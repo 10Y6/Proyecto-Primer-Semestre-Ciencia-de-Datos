@@ -10,7 +10,7 @@ data_exch_rate = fnc.load_exch_rate()
 #El 'Encogimiento' del Salario: Capacidad de Compra (2024 vs. 2025)
 def buy_capacity(sector):
     
-    salary_median = fnc.load_json_onei('salary')
+    salary_mean = fnc.load_json_onei('salary')
     data_onei = sorted(fnc.data_onei(),key=lambda x:x['date'])
 
     canasta = {
@@ -35,7 +35,7 @@ def buy_capacity(sector):
     for row in data_onei:
         data_by_date[row['date']].append(row)
         
-    median_cost = {}
+    mean_cost = {}
     
     for date, products in data_by_date.items():
         daily_cost = 0.0
@@ -56,7 +56,7 @@ def buy_capacity(sector):
                 daily_cost += avg_price * qty_needed
         
         if daily_cost > 0:
-            median_cost[date] = daily_cost
+            mean_cost[date] = daily_cost
         
     df = []
     month_es = {
@@ -65,8 +65,8 @@ def buy_capacity(sector):
         '09': 'Septiembre', '10': 'Octubre', '11': 'Noviembre', '12': 'Diciembre'
     }
     #{date,salarios de la fehca,coste de la canasta}
-    for date,cost in median_cost.items():
-        for year,info in salary_median.items():
+    for date,cost in mean_cost.items():
+        for year,info in salary_mean.items():
             if year in date:
                 year,month = date.split('-')
                 date_es = f"{month_es.get(month,month)} {year}"
@@ -74,7 +74,7 @@ def buy_capacity(sector):
                     'date':date_es,
                     'quanty':round(info[sector]/cost,2),
                     'cost':round(float(cost),2),
-                    'salary':salary_median[year][sector]
+                    'salary':salary_mean[year][sector]
                 })
     
            
@@ -467,15 +467,15 @@ def dispersion_analysis():
     for i,j in products.items():
         products[i] = sorted(j,key=lambda x:x['date'])
     #CV
-    median = defaultdict(list)
+    mean = defaultdict(list)
     st_deviation = defaultdict(list)
     for i,j in products.items():
         st_deviation[i] = fnc.calculate_statistics([k['price'] for k in j])['standard_deviation']
-        median[i] = fnc.calculate_statistics([k['price'] for k in j])['median']
+        mean[i] = fnc.calculate_statistics([k['price'] for k in j])['mean']
 
     df = []
     
-    for med,stdv in zip(median.items(),st_deviation.items()):
+    for med,stdv in zip(mean.items(),st_deviation.items()):
         cv = (stdv[1]/med[1])*100
         df.append(dict(
             cv=round(cv,2),
@@ -543,3 +543,107 @@ def dispersion_analysis():
     )
 
     fig.show()
+    
+def indice_congris_huevo():
+    data_onei = fnc.data_onei()
+    own_data_ = fnc.merge_data(fnc.data_online(),fnc.data_in_situ())
+    #sacar solo ańo con mes para datos de noviembre ya que no me interesan los dias
+    #filtrar mis datos de octubre
+    own_data = [dict(date=x['date'][0:7],product=x['product'],
+                     price=x['price'],unit=(x['unit'][0],x['unit'][1]))
+                for x in own_data_ if '2025-10' not in x['date']]
+    #mergear los datos oficiales con los mios
+    own_data = fnc.merge_data(data_onei,own_data)
+    
+    #normalizar precio por unidad poner los datos a la misma escala
+    own_data = [{'date':x['date'],
+                'product':x['product'],
+                'price':round(x['price']/x['unit'][0],2),
+                'unit':(1,x['unit'][1])} 
+                for x in own_data]
+    
+    #separar los productos en listas individuales
+    products = {
+        'aceite': [x for x in own_data if 'aceite' in x['product']],
+        'arroz': [x for x in own_data if 'arroz' in x['product']],
+        'frijol': [x for x in own_data if 'frijol' in x['product']],
+        'huevo': [x for x in own_data if 'huevo' in x['product']],
+    }
+    
+    recipe = {
+        'arroz': 0.25,   
+        'frijol': 0.125, 
+        'huevo': 1,      
+        'aceite': 0.05   
+    }
+    for i in products:
+        products[i] = sorted(products[i], key=lambda x:x['date'])
+    
+    data = defaultdict(dict)
+    dates = set()
+    
+    for product, items in products.items():
+        price_date = defaultdict(list)
+        for item in items:
+            price_date[item['date']].append(item['price'])
+        
+        for date, prices in price_date.items():
+            avg_price = fnc.calculate_statistics(prices)['mean']
+
+            data[product][date] = avg_price * recipe.get(product, 0)
+            dates.add(date)
+    
+    month_es = {
+        '01': 'Ene', '02': 'Feb', '03': 'Mar', '04': 'Abr',
+        '05': 'May', '06': 'Jun', '07': 'Jul', '08': 'Ago',
+        '09': 'Sep', '10': 'Oct', '11': 'Nov', '12': 'Dic'
+    }
+    
+    xlabel = []
+    dates = sorted(list(dates))
+    products = ['arroz','aceite','huevo','frijol']
+    
+    colors = {
+        'arroz':"#F3EEEE",
+        'aceite':"#F5E12E",
+        'huevo':'#F8DB8B',
+        'frijol':"#E04C4C"
+    }
+    
+    names = {
+        'arroz':'Precio de 250g de arroz',
+        'aceite':'Precio de 50ml de aceite',
+        'huevo':'Precio de 1 un huevo',
+        'frijol':'Precio de 125g de frijoles',
+    }
+    
+    fig = go.Figure()
+    for date in dates:
+        year,month = date.split('-')
+        xlabel.append(f'{month_es[month]} {year}')
+    for product in products:
+         yvalue = [data[product].get(d,d) for d in dates]
+         fig.add_trace(
+             go.Scatter(
+                 x=xlabel,
+                 y=yvalue,
+                 mode='lines',
+                 name=names[product],
+                 stackgroup='one',
+                 line=dict(width=1,color=colors[product]),
+                 fillcolor=colors[product],
+                 hovertemplate='%{y:.0f} CUP'
+             )
+        )
+
+    fig.update_layout(
+        title='Índice del "Congrís con Huevo"',
+        yaxis_title='Costo por Ración',
+        template='plotly_dark',
+        font=dict(family='Roboto',size=14),
+        hovermode='x unified',
+        margin=dict(l=20,r=20,t=80,b=50),
+        legend=dict(orientation='h',y=1.5,x=0.5,xanchor='center')
+    )
+    
+    fig.show()    

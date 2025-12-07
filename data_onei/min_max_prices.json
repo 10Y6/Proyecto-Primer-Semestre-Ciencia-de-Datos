@@ -985,7 +985,7 @@
     "jamón vicking": {"unit": "lb", "min": 400.00, "max": 780.00},
     "chorizo": {"unit": "lb", "min": 300.00, "max": 790.00},
     "aceite a granel": {"unit": "lb", "min": 410.00, "max": 650.00},
-    "arroz": {"unit": "lb", "min": 150.00, "max": 650.00},
+    "arroz": {"unit": "lb", "min": 180.00, "max": 650.00},
     "café molido envasado": {"unit": "115 g", "min": 130.00, "max": 180.00},
     "huevos frescos de gallina": {"unit": "unidad", "min": 83.33, "max": 130.00},
     "leche en polvo descremada": {"unit": "500 g", "min": null, "max": null},
