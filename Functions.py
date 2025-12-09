@@ -169,7 +169,7 @@ def merge_data(data_1,data_2):
     data.extend(data_2)
     return data
 
-def calculate_statistics(value_list):
+def CS(value_list):
     #calculate statitics 
     len_list = len(value_list)
     if len_list == 0:return -1
