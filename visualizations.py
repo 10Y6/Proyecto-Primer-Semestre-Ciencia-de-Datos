@@ -244,7 +244,6 @@ def correlation_dollar():
 
     fig.show()
 
-
 #evolucion del precio con respecto al inicial 2024-01 en porcentaje
 def total_price_evolution():
     #cargar datos y unirlos todos en own_data

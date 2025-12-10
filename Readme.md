@@ -6,7 +6,6 @@
 ![Data](https://img.shields.io/badge/Datos_Reales-In_Situ-red?style=for-the-badge&logo=google-maps&logoColor=white)
 
 > **Proyecto de Primer Semestre - Ciencia de Datos**
-> Un intento de ponerle números reales a lo que cuesta comer hoy en Cuba.
 
 ## 📖 ¿De qué va esto?
 
@@ -50,7 +49,7 @@ Para no hacer este repositorio gigante e imposible de descargar, **he subido tod
 *   **¿Quieres auditar que los datos son reales?**
     Entonces sí, aquí tienes el enlace a la carpeta con toda la evidencia original:
 
-[![Google Drive](https://img.shields.io/badge/Google_Drive-Ver_Evidencia-0F9D58?style=for-the-badge&logo=google-drive&logoColor=white)](link_por_poner)
+[![Google Drive](https://img.shields.io/badge/Google_Drive-Ver_Evidencia-0F9D58?style=for-the-badge&logo=google-drive&logoColor=white)](https://drive.google.com/drive/folders/1GCjTfHnapiiVgJq7zwdOQ-_-d3yBR0bH?usp=sharing)
 
 ## 🗂️ Estructura del Proyecto
 
