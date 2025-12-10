@@ -1,8 +1,9 @@
 # 🍛 La Inflación en el Plato: Análisis de Precios en La Habana (2024-2025)
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
-![Plotly](https://img.shields.io/badge/Visualización-Plotly-orange)
-![Data](https://img.shields.io/badge/Datos-Reales-red)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white)
+![Plotly](https://img.shields.io/badge/Plotly-3F4F75?style=for-the-badge&logo=plotly&logoColor=white)
+![Data](https://img.shields.io/badge/Datos_Reales-In_Situ-red?style=for-the-badge&logo=google-maps&logoColor=white)
 
 > **Proyecto de Primer Semestre - Ciencia de Datos**
 > Un intento de ponerle números reales a lo que cuesta comer hoy en Cuba.
@@ -49,7 +50,7 @@ Para no hacer este repositorio gigante e imposible de descargar, **he subido tod
 *   **¿Quieres auditar que los datos son reales?**
     Entonces sí, aquí tienes el enlace a la carpeta con toda la evidencia original:
 
-[![Google Drive](https://img.shields.io/badge/Google%20Drive-Ver%20Evidencia%20(Fotos%20y%20PDFs)-green?logo=google-drive&logoColor=white)](link_por_poner)
+[![Google Drive](https://img.shields.io/badge/Google_Drive-Ver_Evidencia-0F9D58?style=for-the-badge&logo=google-drive&logoColor=white)](link_por_poner)
 
 ## 🗂️ Estructura del Proyecto
 
