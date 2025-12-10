@@ -280,7 +280,7 @@ def data_online():
 
 def load_exch_rate():
     file_route = os.path.dirname(os.path.abspath(__file__))
-    exch_route = os.path.join(file_route,'db_exch_rate.json')
+    exch_route = os.path.join(file_route,'data_eltoque/db_exch_rate.json')
     with open(exch_route,'r') as file:
         data = file.read()
         data = json.loads(data)

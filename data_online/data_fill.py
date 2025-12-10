@@ -8,11 +8,8 @@ exch_rate = os.path.join(exch_rate,"../")
 exch_rate_route = os.path.join(exch_rate,"db_exch_rate.json")
 
 def date_time(date):
-    #return the current date
-    #for now ignore the time
     if isinstance(date,str):
         date = datetime.datetime.strptime(date,"%Y-%m-%d")
-    #date_time = date.strftime("%H:%M")
     date_date = date.strftime(r"%Y-%m-%d")
     with open(exch_rate_route,'r') as file:
         data = file.read()
@@ -20,7 +17,6 @@ def date_time(date):
         data = data[f"{date_date}"]
     dict_ =  {
         "date":date_date,
-        #"time":date_time,
         "exchange_rate":data
     }
     return dict_

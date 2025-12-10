@@ -7,8 +7,6 @@ to_do_route =  os.path.dirname(os.path.abspath(__file__))
 cache_route = os.path.join(to_do_route,"db_in_situ.json")
 
 
-
-
 class Mipyme():
     def __init__(self,name=None,date=None,time=None,geoloc=None,
                  township=None,products_info=[],exchange_rate=None):

@@ -10,14 +10,11 @@ route = os.path.join(route_path,"db_online.json")
 
 def create_data(date):
     if not date:date = datetime.datetime.now()
-    #return -1 to break the cicle if the user need it
     if date == "-1":return -1
     data = dt(date)
     ans = {}
     product_info = gp()
     ans[data["date"]] = {
-        #"time": data["time"],
-        #"exchange_rate": data["exchange_rate"],
         "products":product_info["products"],
         "prices":product_info["prices"],
         "unit":product_info["unit"]
@@ -25,7 +22,6 @@ def create_data(date):
     return ans
     
 def add_data(new_data):
-    #return -1 if the user need break the cicle
     if new_data == -1:return -1
     with open(route,"r") as file:
         file = file.read()
