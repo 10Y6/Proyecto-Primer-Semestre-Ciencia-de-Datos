@@ -52,7 +52,7 @@ def buy_capacity(sector):
                     valid_prices_per_unit.append(price_per_unit)
             
             if valid_prices_per_unit:
-                avg_price = fnc.calculate_statistics(valid_prices_per_unit)['mean']
+                avg_price = fnc.CS(valid_prices_per_unit)['mean']
                 daily_cost += avg_price * qty_needed
         
         if daily_cost > 0:
@@ -137,92 +137,110 @@ def buy_capacity(sector):
     fig.show()
 
 #la sombra del dolar correlacion entre el precio de un producto y el dolar
-#30-10 al 25-11
-def corretalion_dollar_product(cath):
+#3enero 2024 - noviembre 2025
+def correlation_dollar():
+    data_onei = fnc.data_onei()
+    own_data_ = fnc.merge_data(fnc.data_online(), fnc.data_in_situ())
     
-    start_date = '2025-10-30'
-    end_date = '2025-11-25'
-        
-    data_in_situ = fnc.data_in_situ()
-    data_online = fnc.data_online()
+    # Filtrar y formatear
+    own_data = [dict(date=x['date'][0:7], product=x['product'],
+                     price=x['price'], unit=(x['unit'][0], x['unit'][1]))
+                for x in own_data_ if '2025-10' not in x['date']]
     
-    own_data = fnc.merge_data(data_in_situ,data_online)
-    own_data.sort(key=lambda x:x['date'])
+    own_data = fnc.merge_data(data_onei, own_data)
     
-    own_data_grouped = fnc.group_and_norm(own_data,cath),
+    # Normalizar
+    own_data = [{'date': x['date'],
+                 'product': x['product'],
+                 'price': round(x['price']/x['unit'][0], 2) if x['unit'][0] else 0,
+                 'unit': (1, x['unit'][1])} 
+                for x in own_data if x['unit'][0] > 0]
     
-    for products_list in own_data_grouped:
-        #categoria, todos los productos de la categoria
-        daily_prices = defaultdict(list)
-        
-        for item in products_list:
-            date = item['date']
-            price = item['price']
-            if start_date <= date <= end_date and price > 0:
-                daily_prices[date].append(price)
-        
-        product_avg = defaultdict(list)
-        for date,price_list in daily_prices.items():
-            product_avg[date] = round(sum(price_list) / len(price_list),2)
-        
-        common_dates = sorted(list(product_avg.keys() & data_exch_rate.keys()))
-        
-        prod_prices = [product_avg[date_] for date_ in common_dates]
-        usd_rate = [float(data_exch_rate[date_]) for date_ in common_dates]
-        
-    fig = make_subplots(specs=[[{'secondary_y':True}]])
+    # Separar productos
+    products_ = {
+        'aceite': [x for x in own_data if 'aceite' in x['product']],
+        'arroz': [x for x in own_data if 'arroz' in x['product']]
+    }
     
-    if cath == 'carnicos':
-        fig.add_trace(
-            go.Scatter(
-                x=common_dates,
-                y=prod_prices,
-                name=f'Precio de {cath}',
-                line=dict(color='#FF5252',width=3,dash='dot')
-            ),
-            secondary_y=False
-        )
-    elif cath == 'higiene':
-        fig.add_trace(
-            go.Scatter(
-                x=common_dates,
-                y=prod_prices,
-                name=f'Precio de {cath}',
-                line=dict(color='#00BFFF',width=3,dash='dot')
-            ),
-            secondary_y=False
-        )
-    else:
-        fig.add_trace(
-            go.Scatter(
-                x=common_dates,
-                y=prod_prices,
-                name=f'Precio de {cath}',
-                line=dict(color='#FFD700',width=3,dash='dot')
-            ),
-            secondary_y=False
-        )
+    # Calcular promedios mensuales de productos
+    products = defaultdict(dict)
+    for product, items in products_.items():
+        price_by_month = defaultdict(list)
+        for info in items:
+            price_by_month[info['date']].append(info['price'])
+        
+        for date, prices in price_by_month.items():
+            products[product][date] = fnc.CS(prices)['mean']
+
+    # Calcular tasa de cambio mensual
+    rate_by_month_list = defaultdict(list)
+    for date, rate in data_exch_rate.items():
+        rate_by_month_list[date[:7]].append(float(rate))
     
+    rate_by_month = {}
+    for date, rates in rate_by_month_list.items():
+        rate_by_month[date] = fnc.CS(rates)['mean']
+
+    
+    all_dates = set(rate_by_month.keys())
+    for prod in products:
+        all_dates.update(products[prod].keys())
+    
+    dates = sorted(list(all_dates))
+
+    arroz = [products['arroz'].get(d, None) for d in dates]
+    aceite = [products['aceite'].get(d, None) for d in dates]
+    dollar = [rate_by_month.get(d, None) for d in dates]
+
+    month_es = {'01': 'Ene', '02': 'Feb', '03': 'Mar', '04': 'Abr', '05': 'May', '06': 'Jun', 
+                '07': 'Jul', '08': 'Ago', '09': 'Sep', '10': 'Oct', '11': 'Nov', '12': 'Dic'}
+    xlabel = []
+    for date in dates:
+        year,month = date.split('-')
+        xlabel.append(f'{month_es[month]} {year}')
+
+    fig = make_subplots(specs=[[{'secondary_y': True}]])
+
     fig.add_trace(
         go.Scatter(
-            x=common_dates,
-            y=usd_rate,
-            name='Valor del Dolar',
-            line=dict(color='#2ECC71',width=3,dash='dot'),
+            x=xlabel, y=arroz, name='Arroz (1 kg)', 
+            line=dict(color='#FFFFFF', width=2)       
+            ),
+        secondary_y=False
+    )
+    fig.add_trace(
+        go.Scatter(
+            x=xlabel, y=aceite, name='Aceite (1 L)', 
+            line=dict(color='#F5E12E', width=2)
+        ),
+        secondary_y=False
+    )
+
+    fig.add_trace(
+        go.Scatter(
+            x=xlabel, y=dollar,
+            name='Tasa Dólar (Informal)', 
+            line=dict(color='#2ECC71', width=3, dash='dot')
         ),
         secondary_y=True
     )
-    
+
     fig.update_layout(
-        title=f'Correlación: {cath.capitalize()} vs Dolar',
+        title='Correlación: Precios de Alimentos vs. Tasa de Cambio',
         template='plotly_dark',
-        font=dict(family='Roboto',size=14),
+        font=dict(family='Roboto', size=14),
         hovermode='x unified',
-        legend=dict(orientation='h',y=1.1)
+        legend=dict(orientation='h', y=1.1, x=0.5, xanchor='center'),
+        margin=dict(l=20, r=20, t=80, b=50),
+        hoverlabel=dict(
+            namelength=-1,
+            font_size=14
+        )
     )
     
-    fig.update_yaxes(title_text='Precio Promedio CUP',secondary_y=False)
-    fig.update_yaxes(title_text='Tasa USD',secondary_y=True)
+    fig.update_xaxes(dict(dtick=2))
+    fig.update_yaxes(title_text='Precio Producto (CUP)', secondary_y=False, showgrid=False)
+    fig.update_yaxes(title_text='Tasa de Cambio (CUP/USD)', secondary_y=True, showgrid=True)
 
     fig.show()
 
@@ -470,8 +488,8 @@ def dispersion_analysis():
     mean = defaultdict(list)
     st_deviation = defaultdict(list)
     for i,j in products.items():
-        st_deviation[i] = fnc.calculate_statistics([k['price'] for k in j])['standard_deviation']
-        mean[i] = fnc.calculate_statistics([k['price'] for k in j])['mean']
+        st_deviation[i] = fnc.CS([k['price'] for k in j])['standard_deviation']
+        mean[i] = fnc.CS([k['price'] for k in j])['mean']
 
     df = []
     
@@ -588,7 +606,7 @@ def indice_congris_huevo():
             price_date[item['date']].append(item['price'])
         
         for date, prices in price_date.items():
-            avg_price = fnc.calculate_statistics(prices)['mean']
+            avg_price = fnc.CS(prices)['mean']
 
             data[product][date] = avg_price * recipe.get(product, 0)
             dates.add(date)
