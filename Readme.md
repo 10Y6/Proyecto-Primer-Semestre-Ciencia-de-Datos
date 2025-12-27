@@ -78,8 +78,8 @@ Para no hacer este repositorio gigante e imposible de descargar, **he subido tod
 ├── Functions.py             # 🛠️ Librería de utilidades (limpieza, normalización,carga y estadísticas)
 ├── visualizations.py        # 📊 Para generar los 5 gráficos principales (Plotly)
 ├── story.ipynb              # 🌟 NOTEBOOK PRINCIPAL (Narrativa y Resultados)
-└── Readme.md                # Documentación del proyecto
-└──Informe Técnico           # Informe del proyecto
+├── Readme.md                # Documentación del proyecto
+└── Informe Técnico           # Informe del proyecto
 ```
 **Autor:** Alejandro Manuel de la Torre Almarales
 
